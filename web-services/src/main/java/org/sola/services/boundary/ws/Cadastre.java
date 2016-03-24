@@ -41,6 +41,7 @@ import org.sola.services.boundary.transferobjects.cadastre.LevelTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.services.boundary.transferobjects.cadastre.SurveyPlanTO;//Added refernce for the SurveyPlan
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 import org.sola.services.common.ServiceConstants;
@@ -52,6 +53,7 @@ import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
 import org.sola.services.ejb.cadastre.repository.entities.NewCadastreObjectIdentifier;
 import org.sola.services.ejb.cadastre.repository.entities.SpatialUnit;
 import org.sola.services.ejb.cadastre.repository.entities.SpatialUnitGroup;
+import org.sola.services.ejb.cadastre.repository.entities.SurveyPlan; //SurveyPlan Entity
 import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreChange;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreRedefinition;
@@ -702,7 +704,7 @@ public class Cadastre extends AbstractWebService {
      * 
      * @throws SOLAAccessFault
      * @throws SOLAFault
-     * @throws UnhandledFault
+     * @throws UnhandledFault 
      * @throws OptimisticLockingFault
      * @throws SOLAValidationFault
      */
@@ -731,5 +733,37 @@ public class Cadastre extends AbstractWebService {
                 cadastreEJB.saveSpatialUnits(spatialUnitGroupListToSave, languageCodeTmp);
             }
         });
-    }
+    } 
+        
+        ////////////////////////SAVE Survey Plan////////////////////////////////////////
+       /* @WebMethod(operationName = "SaveSurveyPlan")
+    public void SaveSurveyPlan(
+            //@WebParam(name="itemss") List<SurveyPlanTO>
+            @WebParam(name = "items") List<SurveyPlanTO> items,
+            @WebParam(name = "languageCode") String languageCode)
+            throws SOLAValidationFault, OptimisticLockingFault,
+            SOLAFault, UnhandledFault, SOLAAccessFault {
+        
+        final List<SurveyPlanTO> itemsTmp = items;
+        final String languageCodeTmp = languageCode;
+
+        runUpdateValidation(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                List<String> ids = new ArrayList<String>();
+                for(SurveyPlanTO item: itemsTmp){
+                    ids.add(item.getId());
+                } ////TO CHeck from herew down//////////////
+                List<SpatialUnit> spatialUnitGroupListToSave =
+                        GenericTranslator.fromTOList(itemsTmp, SpatialUnit.class, 
+                        cadastreEJB.getSpatialUnitsByIds(ids));
+                cadastreEJB.saveSpatialUnits(spatialUnitGroupListToSave, languageCodeTmp);
+                /////////////////end checking
+            }
+        }); 
+    }*/
+
+   
+    
 }
