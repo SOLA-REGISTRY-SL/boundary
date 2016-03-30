@@ -20,16 +20,9 @@ public class SurveyPlanTO extends AbstractIdTO {
     private String surveyPlanid; //= id
     private String lSNo;
     private String nameOfOwner;
-    private String gender;
-    private Date dateOfBirth;
-    private String placeOfBirth;
-    private String phoneNo;
-    private String emailAddress;
-    private String nationalIDNo;
-    private String passportNo;
-    private String addressOfOwner;
     private String propertyNameOfStreet;
     private String propertyAddressNo;
+    private String landtype;
     private String areaOfLand;
     private String landManagement;
     private String nameOfLicenseSurveyor;
@@ -42,15 +35,8 @@ public class SurveyPlanTO extends AbstractIdTO {
     private Date dateSurveyed;
     private String beaconnumber;
     private String nameOfCO;
-    private String phoneNoOfCO;
-    private Date dateApprovedByCO;
-    private String designationOfCO;
     private String nameOfSLCO;
-    private String phoneNoOfSLCO;
-    private String emailAddressOfSLCO;
-    private Date dateInputtedIntoSystem;
-    private String inputtedBy;
-
+    
     //COnstructor
     public SurveyPlanTO() {
         super();
@@ -95,70 +81,6 @@ public class SurveyPlanTO extends AbstractIdTO {
         this.nameOfOwner = nameOfOwner;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getPlaceOfBirth() {
-        return placeOfBirth;
-    }
-
-    public void setPlaceOfBirth(String placeOfBirth) {
-        this.placeOfBirth = placeOfBirth;
-    }
-
-    public String getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getNationalIDNo() {
-        return nationalIDNo;
-    }
-
-    public void setNationalIDNo(String nationalIDNo) {
-        this.nationalIDNo = nationalIDNo;
-    }
-
-    public String getPassportNo() {
-        return passportNo;
-    }
-
-    public void setPassportNo(String passportNo) {
-        this.passportNo = passportNo;
-    }
-
-    public String getAddressOfOwner() {
-        return addressOfOwner;
-    }
-
-    public void setAddressOfOwner(String addressOfOwner) {
-        this.addressOfOwner = addressOfOwner;
-    }
-
     public String getPropertyNameOfStreet() {
         return propertyNameOfStreet;
     }
@@ -175,6 +97,14 @@ public class SurveyPlanTO extends AbstractIdTO {
         this.propertyAddressNo = propertyAddressNo;
     }
 
+    public String getLandType() {
+        return landtype;
+    }
+
+    public void setLandType(String landtype) {
+        this.landtype = landtype;
+    }
+    
     public String getAreaOfLand() {
         return areaOfLand;
     }
@@ -270,70 +200,13 @@ public class SurveyPlanTO extends AbstractIdTO {
     public void setNameOfCO(String nameOfCO) {
         this.nameOfCO = nameOfCO;
     }
-
-    public String getPhoneNoOfCO() {
-        return phoneNoOfCO;
-    }
-
-    public void setPhoneNoOfCO(String phoneNoOfCO) {
-        this.phoneNoOfCO = phoneNoOfCO;
-    }
-
-    public Date getDateApprovedByCO() {
-        return dateApprovedByCO;
-    }
-
-    public void setDateApprovedByCO(Date dateApprovedByCO) {
-        this.dateApprovedByCO = dateApprovedByCO;
-    }
-
-    public String getDesignationOfCO() {
-        return designationOfCO;
-    }
-
-    public void setDesignationOfCO(String designationOfCO) {
-        this.designationOfCO = designationOfCO;
-    }
-
-    public String getNameOfSLCO() {
+  
+     public String getNameOfSLCO() {
         return nameOfSLCO;
     }
 
     public void setNameOfSLCO(String nameOfSLCO) {
         this.nameOfSLCO = nameOfSLCO;
     }
-
-    public String getPhoneNoOfSLCO() {
-        return phoneNoOfSLCO;
-    }
-
-    public void setPhoneNoOfSLCO(String phoneNoOfSLCO) {
-        this.phoneNoOfSLCO = phoneNoOfSLCO;
-    }
-
-    public String getEmailAddressOfSLCO() {
-        return emailAddressOfSLCO;
-    }
-
-    public void setEmailAddressOfSLCO(String emailAddressOfSLCO) {
-        this.emailAddressOfSLCO = emailAddressOfSLCO;
-    }
-
-    public Date getDateInputtedIntoSystem() {
-        return dateInputtedIntoSystem;
-    }
-
-    public void setDateInputtedIntoSystem(Date dateInputtedIntoSystem) {
-        this.dateInputtedIntoSystem = dateInputtedIntoSystem;
-    }
-
-    public String getInputtedBy() {
-        return inputtedBy;
-    }
-
-    public void setInputtedBy(String inputtedBy) {
-        this.inputtedBy = inputtedBy;
-    }
-    
     
 }
