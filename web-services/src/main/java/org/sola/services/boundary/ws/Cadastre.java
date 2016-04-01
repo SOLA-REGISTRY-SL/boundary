@@ -733,12 +733,11 @@ public class Cadastre extends AbstractWebService {
                 cadastreEJB.saveSpatialUnits(spatialUnitGroupListToSave, languageCodeTmp);
             }
         });
-    } 
+    }
         
         ////////////////////////SAVE Survey Plan////////////////////////////////////////
-       /* @WebMethod(operationName = "SaveSurveyPlan")
+       @WebMethod(operationName = "SaveSurveyPlan")
     public void SaveSurveyPlan(
-            //@WebParam(name="itemss") List<SurveyPlanTO>
             @WebParam(name = "items") List<SurveyPlanTO> items,
             @WebParam(name = "languageCode") String languageCode)
             throws SOLAValidationFault, OptimisticLockingFault,
@@ -754,15 +753,14 @@ public class Cadastre extends AbstractWebService {
                 List<String> ids = new ArrayList<String>();
                 for(SurveyPlanTO item: itemsTmp){
                     ids.add(item.getId());
-                } ////TO CHeck from herew down//////////////
-                List<SpatialUnit> spatialUnitGroupListToSave =
-                        GenericTranslator.fromTOList(itemsTmp, SpatialUnit.class, 
-                        cadastreEJB.getSpatialUnitsByIds(ids));
-                cadastreEJB.saveSpatialUnits(spatialUnitGroupListToSave, languageCodeTmp);
-                /////////////////end checking
+                } 
+                List<SurveyPlan> surveyPlanListToSave =
+                        GenericTranslator.fromTOList(itemsTmp, SurveyPlan.class, 
+                        cadastreEJB.getSurveyPlanByIds(ids));
+                cadastreEJB.saveSurveyPlan(surveyPlanListToSave, languageCodeTmp);
             }
         }); 
-    }*/
+    }
 
    
     

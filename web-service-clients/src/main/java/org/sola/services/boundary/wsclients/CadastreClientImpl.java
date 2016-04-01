@@ -39,6 +39,7 @@ import org.sola.webservices.transferobjects.cadastre.CadastreObjectTO;
 import org.sola.webservices.transferobjects.cadastre.LevelTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitTO;
+
 import org.sola.webservices.transferobjects.cadastre.SpatialValueAreaTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;

@@ -507,4 +507,14 @@ public class MockCadastrePort implements Cadastre {
             SOLAValidationFault, UnhandledFault {
     }
     
+      /**
+     * Response Key = CadastreClient.SAVE_SPATIAL_UNITS
+     *
+     */   
+    @Override
+    public void saveSurveyPlan(
+            List<SurveyPlanTO> items, String languageCode) 
+            throws OptimisticLockingFault, SOLAAccessFault, SOLAFault, 
+            SOLAValidationFault, UnhandledFault {
+    }
 }

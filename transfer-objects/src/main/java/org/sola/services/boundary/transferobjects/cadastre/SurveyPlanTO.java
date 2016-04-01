@@ -5,7 +5,6 @@
  */
 package org.sola.services.boundary.transferobjects.cadastre;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import org.sola.services.common.contracts.AbstractIdTO;
 

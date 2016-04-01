@@ -37,7 +37,8 @@ import org.sola.webservices.transferobjects.cadastre.LevelTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialValueAreaTO;
-import org.sola.webservices.transferobjects.transaction.TransactionBulkOperationSpatialTO;
+import org.sola.webservices.transferobjects.cadastre.SurveyPlanTO;
+
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -138,7 +139,13 @@ public interface CadastreClient extends AbstractWSClient {
     public static final String GET_SPATIAL_UNITS  = SERVICE_NAME + "getSpatialUnits";
 
     public static final String SAVE_SPATIAL_UNITS  = SERVICE_NAME + "saveSpatialUnits";
-
+ 
+    //Save and GET Survey Plan Details
+    public static final String SAVE_SURVEY_PLANS  = SERVICE_NAME + "saveSurveyPlans";
+    
+    public static final String GET_SURVEY_PLANS  = SERVICE_NAME + "getSurveyPlans";
+   
+    
     /**
      * Returns a maximum of 10 cadastre objects that have a name first part and/or name last part
      * that matches the specified search string. This method supports partial matches and is case
@@ -318,4 +325,8 @@ public interface CadastreClient extends AbstractWSClient {
     * @param items 
     */
    void saveSpatialUnits(List<SpatialUnitTO> items);
+   
+   //SAVE SURVEY PLAN
+   void saveSurveyPlan(List<SurveyPlanTO> items);
+   
 }

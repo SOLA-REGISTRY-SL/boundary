@@ -38,7 +38,6 @@ import org.sola.webservices.transferobjects.referencedata.*;
 import org.sola.webservices.transferobjects.security.GroupTO;
 import org.sola.webservices.transferobjects.security.RoleTO;
 import org.sola.webservices.transferobjects.security.UserTO;
-
 /**
  * Factory to creates mock Transfer Objects that can be used for testing
  * purposes.
