@@ -325,7 +325,8 @@ public interface CadastreClient extends AbstractWSClient {
     */
    void saveSpatialUnits(List<SpatialUnitTO> items);
    
-   //SAVE SURVEY PLAN
+   
+   //SAVE SURVEY PLAN 
    void saveSurveyPlan(List<SurveyPlanTO> items);
    
 }

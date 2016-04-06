@@ -38,6 +38,7 @@ import org.sola.webservices.transferobjects.cadastre.LevelTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.webservices.transferobjects.cadastre.SurveyPlanTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
 
@@ -507,9 +508,8 @@ public class MockCadastrePort implements Cadastre {
             SOLAValidationFault, UnhandledFault {
     }
     
-      /**
-     * Response Key = CadastreClient.SAVE_SPATIAL_UNITS
-     *
+       /**
+        * Response Key = CadastreClient.SAVE_SURVEY_PLANS;
      */   
     @Override
     public void saveSurveyPlan(
