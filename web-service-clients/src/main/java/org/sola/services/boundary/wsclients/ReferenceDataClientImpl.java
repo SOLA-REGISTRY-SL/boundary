@@ -715,4 +715,46 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
         return result;
     }
+    
+    //CordinateSYstemTypes
+      @Override
+    public List<CordinateSystemTypeTO> getCordinateSystemTypes() throws WebServiceClientException {
+        return getCordinateSystemTypes(this.getLanguageCode());
+    }
+
+    @Override
+    public List<CordinateSystemTypeTO> getCordinateSystemTypes(String lang) throws WebServiceClientException {
+        List<CordinateSystemTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_CORDINATESYSTETYPE_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result=getPort().getCordinateSystemTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    } 
+    
+    //SurveyingMethodTypes
+     @Override
+    public List<SurveyingMethodTypeTO> getSurveyingMethodTypes() throws WebServiceClientException {
+        return getSurveyingMethodTypes(this.getLanguageCode());
+    }
+
+    @Override
+    public List<SurveyingMethodTypeTO> getSurveyingMethodTypes(String lang) throws WebServiceClientException {
+        List<SurveyingMethodTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_SURVEYINGMETHOD_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result=getPort().getSurveyingMethodTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
 }

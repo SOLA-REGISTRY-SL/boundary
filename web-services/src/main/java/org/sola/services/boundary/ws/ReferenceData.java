@@ -1166,5 +1166,53 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<NotifyRelationshipTypeTO>) result[0];
     }
+    
+    
+    //CordinateSystemType
+   
+    @WebMethod(operationName = "GetCordinateSystemTypes")
+    public List<CordinateSystemTypeTO> GetCordinateSystemTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
 
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getCordniateSystemTypes(languageCodeTmp),
+                        CordinateSystemTypeTO.class);
+                      
+            }
+        });
+
+        return (List<CordinateSystemTypeTO>) result[0];
+    }
+
+     //CordinateSystemType
+   
+    @WebMethod(operationName = "GetSurveyingMethodTypes")
+    public List<SurveyingMethodTypeTO> GetSurveyingMethodTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getSurveyingMethodTypes(languageCodeTmp),
+                        SurveyingMethodTypeTO.class);
+                      
+            }
+        });
+
+        return (List<SurveyingMethodTypeTO>) result[0];
+    }
+
+    
 }

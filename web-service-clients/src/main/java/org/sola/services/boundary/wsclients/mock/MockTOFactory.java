@@ -514,7 +514,26 @@ public class MockTOFactory {
         return result;
     }
 
-    
+     /**
+     * Creates a default list of cordinateSYstemType types
+     */
+     public static List<CordinateSystemTypeTO> createCordinateSystemTypes() {
+        List<CordinateSystemTypeTO> result = new ArrayList<CordinateSystemTypeTO>();
+        result.add(createCode(CordinateSystemTypeTO.class, "UTM28", "UTM28"));
+        result.add(createCode(CordinateSystemTypeTO.class, "UTM29", "UTM29"));
+        return result;
+    }
+     
+      /**
+     * Creates a default list of cordinateSYstemType types
+     */
+     public static List<SurveyingMethodTypeTO> createSurveyingMethodTypes() {
+        List<SurveyingMethodTypeTO> result = new ArrayList<SurveyingMethodTypeTO>();
+        result.add(createCode(SurveyingMethodTypeTO.class, "GPS", "GPS"));
+        result.add(createCode(SurveyingMethodTypeTO.class, "theodolite", "Theodolite"));
+        return result;
+    }
+     
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Security TOs">
     /**

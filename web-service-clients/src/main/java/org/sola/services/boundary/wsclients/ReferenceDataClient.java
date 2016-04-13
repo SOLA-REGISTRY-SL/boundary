@@ -28,6 +28,7 @@
 package org.sola.services.boundary.wsclients;
 
 import java.util.List;
+import org.sola.common.RolesConstants;
 import org.sola.services.boundary.wsclients.exception.WebServiceClientException;
 import org.sola.webservices.transferobjects.AbstractCodeTO;
 import org.sola.webservices.transferobjects.referencedata.*;
@@ -182,7 +183,13 @@ public interface ReferenceDataClient extends AbstractWSClient {
      */
     public static final String GET_NOTIFY_RELATIONSHIP_TYPES = SERVICE_NAME + "getNotifyRelationshipTypes";
  
-    /**
+    //CordinateSystemType
+      public static final String GET_CORDINATESYSTETYPE_TYPES = SERVICE_NAME + "GetCordinateSystemTypes";
+    
+      //SurveyingMethodType
+      public static final String GET_SURVEYINGMETHOD_TYPES = SERVICE_NAME + "GetSurveyingMethodTypes";
+    
+      /**
      * Retrieves all source.source_type code values using the default locale of the client to
      * localize the display values.
      *
@@ -680,4 +687,14 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<NotifyRelationshipTypeTO> getNotifyRelationshipTypes(String lang) throws WebServiceClientException;
 
 
+       //Get CordinateSystem Type
+    List<CordinateSystemTypeTO> getCordinateSystemTypes() throws WebServiceClientException;
+
+    List<CordinateSystemTypeTO> getCordinateSystemTypes(String lang) throws WebServiceClientException;
+    
+     //SurveyingMethodTypes
+    List<SurveyingMethodTypeTO> getSurveyingMethodTypes() throws WebServiceClientException;
+
+    List<SurveyingMethodTypeTO> getSurveyingMethodTypes(String lang) throws WebServiceClientException;
+    
 }
