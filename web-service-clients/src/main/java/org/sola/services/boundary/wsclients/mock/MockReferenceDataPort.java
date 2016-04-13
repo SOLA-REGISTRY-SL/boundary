@@ -696,12 +696,25 @@ public class MockReferenceDataPort implements ReferenceData {
         }
     }
     
-    //CordinateSystemType
+    //SurveyingMethodType
     @Override
     public List<SurveyingMethodTypeTO> getSurveyingMethodTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         List<SurveyingMethodTypeTO> defaultResponse = MockTOFactory.createSurveyingMethodTypes();
         try {
             return getManager().getResponse(ReferenceDataClient.GET_SURVEYINGMETHOD_TYPES,
+                    List.class, defaultResponse, arg0);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+    
+    //ChiefdomType
+    @Override
+    public List<ChiefdomTypeTO> getChiefdomTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<ChiefdomTypeTO> defaultResponse = MockTOFactory.createChiefdomTypes();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_CHIEFDOM_TYPES,
                     List.class, defaultResponse, arg0);
         } catch (Exception ex) {
             processExceptionAccess(ex);

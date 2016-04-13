@@ -189,6 +189,9 @@ public interface ReferenceDataClient extends AbstractWSClient {
       //SurveyingMethodType
       public static final String GET_SURVEYINGMETHOD_TYPES = SERVICE_NAME + "GetSurveyingMethodTypes";
     
+       //ChiefdomType
+      public static final String GET_CHIEFDOM_TYPES = SERVICE_NAME + "getChiefdomTypes";
+    
       /**
      * Retrieves all source.source_type code values using the default locale of the client to
      * localize the display values.
@@ -696,5 +699,10 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<SurveyingMethodTypeTO> getSurveyingMethodTypes() throws WebServiceClientException;
 
     List<SurveyingMethodTypeTO> getSurveyingMethodTypes(String lang) throws WebServiceClientException;
+    
+    //ChiefdomType
+    List<ChiefdomTypeTO> getChiefdomTypes() throws WebServiceClientException;
+
+    List<ChiefdomTypeTO> getChiefdomTypes(String lang) throws WebServiceClientException;
     
 }

@@ -525,12 +525,22 @@ public class MockTOFactory {
     }
      
       /**
-     * Creates a default list of cordinateSYstemType types
+     * Creates a default list of SurveyingMethodtypes
      */
      public static List<SurveyingMethodTypeTO> createSurveyingMethodTypes() {
         List<SurveyingMethodTypeTO> result = new ArrayList<SurveyingMethodTypeTO>();
         result.add(createCode(SurveyingMethodTypeTO.class, "GPS", "GPS"));
         result.add(createCode(SurveyingMethodTypeTO.class, "theodolite", "Theodolite"));
+        return result;
+    }
+     
+       /**
+     * Creates a default list of ChiefdomTypes
+     */
+     public static List<ChiefdomTypeTO> createChiefdomTypes() {
+        List<ChiefdomTypeTO> result = new ArrayList<ChiefdomTypeTO>();
+        result.add(createCode(ChiefdomTypeTO.class, "Kakua", "Kakua"));
+        result.add(createCode(ChiefdomTypeTO.class, "luawa", "luawa"));
         return result;
     }
      

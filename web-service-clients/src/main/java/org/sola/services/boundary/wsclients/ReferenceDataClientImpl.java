@@ -757,4 +757,25 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
         return result;
     }
+    
+     //ChiefdomType
+     @Override
+    public List<ChiefdomTypeTO> getChiefdomTypes() throws WebServiceClientException {
+        return getChiefdomTypes(this.getLanguageCode());
+    }
+
+    @Override
+    public List<ChiefdomTypeTO> getChiefdomTypes(String lang) throws WebServiceClientException {
+        List<ChiefdomTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_CHIEFDOM_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result=getPort().getChiefdomTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
 }
