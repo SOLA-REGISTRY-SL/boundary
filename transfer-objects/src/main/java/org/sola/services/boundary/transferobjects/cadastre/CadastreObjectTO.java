@@ -27,10 +27,7 @@
  */
 package org.sola.services.boundary.transferobjects.cadastre;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import org.sola.services.boundary.transferobjects.casemanagement.AddressTO;
 import org.sola.services.common.contracts.AbstractIdTO;
 
 /**
@@ -48,8 +45,20 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String statusCode;
     private String transactionId;
     private byte[] geomPolygon;
-    private List<SpatialValueAreaTO> spatialValueAreaList = new ArrayList<SpatialValueAreaTO>();
-    private List<AddressTO> addressList;
+    private String ownerName;
+    private String address;
+    private String landType;
+    private double parcelArea;
+    private String licensedSurveyorId;
+    private String eastNeighbour;
+    private String westNeighbour;
+    private String southNeighbour;
+    private String northNeighbour;
+    private String surveyMethod;
+    private String surveyDate;
+    private String beaconNumber;
+    private String chartingOfficerId;
+    private String stateLandClearingOfficerId;
     
     public CadastreObjectTO() {
         super();
@@ -135,19 +144,116 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.transactionId = transactionId;
     }
 
-    public List<SpatialValueAreaTO> getSpatialValueAreaList() {
-        return spatialValueAreaList;
+    public String getOwnerName() {
+        return ownerName;
     }
 
-    public void setSpatialValueAreaList(List<SpatialValueAreaTO> spatialValueAreaList) {
-        this.spatialValueAreaList = spatialValueAreaList;
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
-    public List<AddressTO> getAddressList() {
-        return addressList;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressList(List<AddressTO> addressList) {
-        this.addressList = addressList;
+    public void setAddress(String address) {
+        this.address = address;
     }
+
+    public String getLandType() {
+        return landType;
+    }
+
+    public void setLandType(String landType) {
+        this.landType = landType;
+    }
+
+    public double getParcelArea() {
+        return parcelArea;
+    }
+
+    public void setParcelArea(double parcelArea) {
+        this.parcelArea = parcelArea;
+    }
+
+    public String getEastNeighbour() {
+        return eastNeighbour;
+    }
+
+    public void setEastNeighbour(String eastNeighbour) {
+        this.eastNeighbour = eastNeighbour;
+    }
+
+    public String getWestNeighbour() {
+        return westNeighbour;
+    }
+
+    public void setWestNeighbour(String westNeighbour) {
+        this.westNeighbour = westNeighbour;
+    }
+
+    public String getSouthNeighbour() {
+        return southNeighbour;
+    }
+
+    public void setSouthNeighbour(String southNeighbour) {
+        this.southNeighbour = southNeighbour;
+    }
+
+    public String getNorthNeighbour() {
+        return northNeighbour;
+    }
+
+    public void setNorthNeighbour(String northNeighbour) {
+        this.northNeighbour = northNeighbour;
+    }
+
+    public String getSurveyMethod() {
+        return surveyMethod;
+    }
+
+    public void setSurveyMethod(String surveyMethod) {
+        this.surveyMethod = surveyMethod;
+    }
+
+    public String getSurveyDate() {
+        return surveyDate;
+    }
+
+    public void setSurveyDate(String surveyDate) {
+        this.surveyDate = surveyDate;
+    }
+
+    public String getBeaconNumber() {
+        return beaconNumber;
+    }
+
+    public void setBeaconNumber(String beaconNumber) {
+        this.beaconNumber = beaconNumber;
+    }
+
+    public String getLicensedSurveyorId() {
+        return licensedSurveyorId;
+    }
+
+    public void setLicensedSurveyorId(String licensedSurveyorId) {
+        this.licensedSurveyorId = licensedSurveyorId;
+    }
+
+    public String getChartingOfficerId() {
+        return chartingOfficerId;
+    }
+
+    public void setChartingOfficerId(String chartingOfficerId) {
+        this.chartingOfficerId = chartingOfficerId;
+    }
+
+    public String getStateLandClearingOfficerId() {
+        return stateLandClearingOfficerId;
+    }
+
+    public void setStateLandClearingOfficerId(String stateLandClearingOfficerId) {
+        this.stateLandClearingOfficerId = stateLandClearingOfficerId;
+    }
+
 }
