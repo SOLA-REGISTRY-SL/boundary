@@ -37,10 +37,10 @@ import org.sola.webservices.transferobjects.cadastre.LevelTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.webservices.transferobjects.cadastre.SurveyPlanListReturnReportTO;
 import org.sola.webservices.transferobjects.cadastre.SurveyPlanTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
-
 /**
  * Interface for the Cadastre Service. Implemented by {@linkplain CadastreClientImpl}.
  * To obtain a reference to the Cadastre Service, use {@linkplain WSManager#getCadastreService()}
@@ -143,6 +143,9 @@ public interface CadastreClient extends AbstractWSClient {
     public static final String SAVE_SURVEY_PLANS  = SERVICE_NAME + "saveSurveyPlans";
     
     public static final String GET_SURVEY_PLANS  = SERVICE_NAME + "getSurveyPlans";
+    
+    // SurveyPlanListReturnReport view
+    public static final String GET_SURVEY_PLAN_LIST_RETURN_REPORT  = SERVICE_NAME + "getSurveyPlanReturnListReport";
    
     
     /**
@@ -328,5 +331,12 @@ public interface CadastreClient extends AbstractWSClient {
    
    //SAVE SURVEY PLAN 
    void saveSurveyPlan(List<SurveyPlanTO> items);
+   
+   //SURVEY PLAN VIEW
+   /**
+    * Gets the SURVEY PLAN.
+    * @return 
+    */
+   List<SurveyPlanListReturnReportTO> getSurveyPlanListReturnReportTO();
    
 }

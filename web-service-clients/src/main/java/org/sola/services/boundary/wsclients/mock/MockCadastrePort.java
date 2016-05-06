@@ -38,6 +38,7 @@ import org.sola.webservices.transferobjects.cadastre.LevelTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.webservices.transferobjects.cadastre.SurveyPlanListReturnReportTO;
 import org.sola.webservices.transferobjects.cadastre.SurveyPlanTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
@@ -517,4 +518,19 @@ public class MockCadastrePort implements Cadastre {
             throws OptimisticLockingFault, SOLAAccessFault, SOLAFault, 
             SOLAValidationFault, UnhandledFault {
     }
+    
+    //SURVEY DETAILS PLAN VIEW
+     @Override 
+    public List<SurveyPlanListReturnReportTO> getSurveyPlanReturnListReport(String languageCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<SurveyPlanListReturnReportTO> defaultResponse = new ArrayList<SurveyPlanListReturnReportTO>();
+        
+        try {
+            return getManager().getResponse(CadastreClient.GET_SURVEY_PLAN_LIST_RETURN_REPORT,
+                    List.class, defaultResponse);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+  
 }

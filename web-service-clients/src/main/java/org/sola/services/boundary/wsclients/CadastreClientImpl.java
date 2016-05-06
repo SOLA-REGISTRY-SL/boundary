@@ -43,6 +43,7 @@ import org.sola.webservices.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitTO;
 
 import org.sola.webservices.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.webservices.transferobjects.cadastre.SurveyPlanListReturnReportTO;
 import org.sola.webservices.transferobjects.cadastre.SurveyPlanTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreRedefinitionTO;
@@ -419,4 +420,23 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
             afterWebMethod(methodName, items);
         }
     }
+    
+    //SURVEY PLAN LIST VIEW
+     @Override
+    public List<SurveyPlanListReturnReportTO> getSurveyPlanListReturnReportTO() {
+        List<SurveyPlanListReturnReportTO> result = null;
+        final String methodName = CadastreClient.GET_SURVEY_PLAN_LIST_RETURN_REPORT;
+        String languageCode = this.getLanguageCode();
+        try { 
+            beforeWebMethod(methodName);
+            //Having problem with the below line
+            //result = getPort().getSurveyPlanListReturnReport(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result);
+        }
+        return result;
+    }
+    
 }
