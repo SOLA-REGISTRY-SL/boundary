@@ -49,6 +49,8 @@ import org.sola.services.common.br.ValidationResult;
 import org.sola.services.common.contracts.GenericTranslator;
 import org.sola.services.common.faults.*;
 import org.sola.services.common.webservices.AbstractWebService;
+import org.sola.services.ejb.application.businesslogic.ApplicationEJBLocal;
+import org.sola.services.ejb.application.repository.entities.Service;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
 import org.sola.services.ejb.cadastre.repository.entities.NewCadastreObjectIdentifier;
 import org.sola.services.ejb.cadastre.repository.entities.SpatialUnit;
@@ -70,6 +72,9 @@ public class Cadastre extends AbstractWebService {
     private CadastreEJBLocal cadastreEJB;
     @EJB
     private TransactionEJBLocal transactionEJB;
+    @EJB
+    private ApplicationEJBLocal appEJB;
+    
     @Resource
     private WebServiceContext wsContext;
 
@@ -264,8 +269,15 @@ public class Cadastre extends AbstractWebService {
                         transactionTO.getId(), TransactionCadastreChange.class);
                 TransactionCadastreChange transactionCadastreChange = GenericTranslator.fromTO(
                         transactionTO, TransactionCadastreChange.class, targetTransaction);
-                result[0] = transactionEJB.saveTransaction(
-                        transactionCadastreChange, TransactionType.CADASTRE_CHANGE, languageCodeTmp);
+                
+                String requestType = TransactionType.CADASTRE_CHANGE;
+                
+                if(transactionCadastreChange.getFromServiceId() != null){
+                    Service service = appEJB.getService(transactionCadastreChange.getFromServiceId());
+                    if(service != null)
+                        requestType = service.getRequestTypeCode();
+                }
+                result[0] = transactionEJB.saveTransaction(transactionCadastreChange, requestType, languageCodeTmp);
             }
         });
 
