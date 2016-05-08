@@ -41,6 +41,7 @@ import org.sola.services.boundary.transferobjects.cadastre.LevelTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.services.boundary.transferobjects.cadastre.SurveyPlanListReturnReportTO;
 import org.sola.services.boundary.transferobjects.cadastre.SurveyPlanTO;//Added refernce for the SurveyPlan
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreRedefinitionTO;
@@ -405,7 +406,6 @@ public class Cadastre extends AbstractWebService {
                         CadastreObjectNodeTO.class);
             }
         });
-
         return (CadastreObjectNodeTO) result[0];
     }
 
@@ -774,6 +774,26 @@ public class Cadastre extends AbstractWebService {
         }); 
     }
 
-   
+   //Survey Plan View
+     @WebMethod(operationName = "GetSurveyPlanReturnListReport")
+    public List<SurveyPlanListReturnReportTO> GetSurveyPlanReturnListReport(@WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+        final Object[] params = {languageCode};
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                String languageCode = params[0] == null ? null : params[0].toString();
+                //result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport(languageCode), SurveyPlanListReturnReportTO.class);
+                
+                //NOTE: This method/function below takes two parameters first is searchString and the second is languageCode BUT the the searchString is unknown......
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport("",languageCode), SurveyPlanListReturnReportTO.class);
+            }
+        }); 
+ 
+        return (List<SurveyPlanListReturnReportTO>) result[0];
+    }
     
 }
