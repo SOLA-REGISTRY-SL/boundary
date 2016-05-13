@@ -778,4 +778,24 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
         return result;
     }
+
+    @Override
+    public List<LandTypeTO> getLandTypes() throws WebServiceClientException {
+        return getLandTypes(this.getLanguageCode());
+    }
+    
+    @Override
+    public List<LandTypeTO> getLandTypes(String lang) throws WebServiceClientException {
+        List<LandTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_LAND_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getLandTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
 }

@@ -77,6 +77,10 @@ public interface SearchClient extends AbstractWSClient {
      */
     public static final String SEARCH_PARTIES = SERVICE_NAME + "searchParties";
     /**
+     * Search.searchPartiesByRole - Identifier for the searchPartiesByRole method
+     */
+    public static final String SEARCH_PARTIES_BY_ROLE = SERVICE_NAME + "searchPartiesByRole";
+    /**
      * Search.searchPartiesProperty - Identifier for the searchPartiesProperty method
      */
     public static final String SEARCH_PARTIES_PROPERTY = SERVICE_NAME + "searchPartiesProperty";
@@ -382,7 +386,7 @@ public interface SearchClient extends AbstractWSClient {
      */
     public List<SpatialResult> getPlanCadastreObjects(String cadastreObjectId);
 
-        /**
+     /**
      * Transforms the geometry to the crs with the srid.
      * The geometry must have also a srid.
      * 
@@ -391,4 +395,12 @@ public interface SearchClient extends AbstractWSClient {
      * @return Transformed geometry
      */
     public byte[] transform(byte[] geom, int srid);
+    
+    /**
+     * Searches parties by provided role code.
+     *
+     * @param roleCode Party role code.
+     * @return A maximum of 101 parties that match the search criteria.
+     */
+    public List<PartySearchResultTO> searchPartiesByRole(String roleCode);
 }

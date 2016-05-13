@@ -485,4 +485,9 @@ public class MockSearchPort implements Search {
             return null;
         }    
     }
+
+    @Override
+    public List<PartySearchResultTO> searchPartiesByRole(String roleCode) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

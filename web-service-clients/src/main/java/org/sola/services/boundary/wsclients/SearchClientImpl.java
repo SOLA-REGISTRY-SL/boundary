@@ -449,4 +449,20 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         }
         return result;
     }
+
+    @Override
+    public List<PartySearchResultTO> searchPartiesByRole(String roleCode) throws WebServiceClientException {
+        List<PartySearchResultTO> result = null;
+        
+        final String methodName = SearchClient.SEARCH_PARTIES_BY_ROLE;
+        try {
+            beforeWebMethod(methodName, roleCode);
+            result = getPort().searchPartiesByRole(roleCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, roleCode);
+        }
+        return result;
+    }
 }

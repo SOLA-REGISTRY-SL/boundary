@@ -245,6 +245,30 @@ public class Search extends AbstractWebService {
         return (List<PartySearchResultTO>) result[0];
     }
     
+    /**
+     * See {@linkplain  org.sola.services.ejb.search.businesslogic.SearchEJB#searchPartiesByRole(java.util.String)
+     * SearchEJB.searchPartiesByRole}
+     *
+     * @param roleCode Party role code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "SearchPartiesByRole")
+    public List<PartySearchResultTO> searchPartiesByRole(
+            @WebParam(name = "roleCode") final String roleCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.searchPartiesByRole(roleCode), PartySearchResultTO.class);
+            }
+        });
+        return (List<PartySearchResultTO>) result[0];
+    }
     
      /**
      * See {@linkplain  org.sola.services.ejb.search.businesslogic.SearchEJB#searchPartiesProperty(org.sola.services.ejb.search.repository.entities.PartySearchParams)

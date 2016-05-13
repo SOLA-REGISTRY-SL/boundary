@@ -47,18 +47,22 @@ public class CadastreObjectTO extends AbstractIdTO {
     private byte[] geomPolygon;
     private String ownerName;
     private String address;
-    private String landType;
+    private String landTypeCode;
     private double parcelArea;
     private String licensedSurveyorId;
     private String eastNeighbour;
     private String westNeighbour;
     private String southNeighbour;
     private String northNeighbour;
-    private String surveyMethod;
-    private String surveyDate;
+    private String surveyMethodCode;
+    private Date surveyDate;
     private String beaconNumber;
     private String chartingOfficerId;
     private String stateLandClearingOfficerId;
+    private PartySummaryTO stateLandClearingOfficer;
+    private PartySummaryTO chartingOfficer;
+    private PartySummaryTO licensedSurveyor;
+    private String chiefdomTypeCode;
     
     public CadastreObjectTO() {
         super();
@@ -160,12 +164,12 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.address = address;
     }
 
-    public String getLandType() {
-        return landType;
+    public String getLandTypeCode() {
+        return landTypeCode;
     }
 
-    public void setLandType(String landType) {
-        this.landType = landType;
+    public void setLandTypeCode(String landTypeCode) {
+        this.landTypeCode = landTypeCode;
     }
 
     public double getParcelArea() {
@@ -208,19 +212,19 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.northNeighbour = northNeighbour;
     }
 
-    public String getSurveyMethod() {
-        return surveyMethod;
+    public String getSurveyMethodCode() {
+        return surveyMethodCode;
     }
 
-    public void setSurveyMethod(String surveyMethod) {
-        this.surveyMethod = surveyMethod;
+    public void setSurveyMethodCode(String surveyMethodCode) {
+        this.surveyMethodCode = surveyMethodCode;
     }
 
-    public String getSurveyDate() {
+    public Date getSurveyDate() {
         return surveyDate;
     }
 
-    public void setSurveyDate(String surveyDate) {
+    public void setSurveyDate(Date surveyDate) {
         this.surveyDate = surveyDate;
     }
 
@@ -256,4 +260,35 @@ public class CadastreObjectTO extends AbstractIdTO {
         this.stateLandClearingOfficerId = stateLandClearingOfficerId;
     }
 
+    public PartySummaryTO getStateLandClearingOfficer() {
+        return stateLandClearingOfficer;
+    }
+
+    public void setStateLandClearingOfficer(PartySummaryTO stateLandClearingOfficer) {
+        this.stateLandClearingOfficer = stateLandClearingOfficer;
+    }
+
+    public PartySummaryTO getChartingOfficer() {
+        return chartingOfficer;
+    }
+
+    public void setChartingOfficer(PartySummaryTO chartingOfficer) {
+        this.chartingOfficer = chartingOfficer;
+    }
+
+    public PartySummaryTO getLicensedSurveyor() {
+        return licensedSurveyor;
+    }
+
+    public void setLicensedSurveyor(PartySummaryTO licensedSurveyor) {
+        this.licensedSurveyor = licensedSurveyor;
+    }
+
+    public String getChiefdomTypeCode() {
+        return chiefdomTypeCode;
+    }
+
+    public void setChiefdomTypeCode(String chiefdomTypeCode) {
+        this.chiefdomTypeCode = chiefdomTypeCode;
+    }
 }

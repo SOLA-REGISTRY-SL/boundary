@@ -1231,5 +1231,30 @@ public class ReferenceData extends AbstractWebService {
         return (List<ChiefdomTypeTO>) result[0];
     }
 
-    
+    /**
+     * See {@linkplain org.sola.services.cadastre.party.businesslogic.CadastreEJB#getLandTypes(java.lang.String)
+     * CadastreEJB.getLandTypes}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetLandTypes")
+    public List<LandTypeTO> GetLandTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runOpenQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        cadastreEJB.getLandTypes(languageCodeTmp), LandTypeTO.class);
+            }
+        });
+
+        return (List<LandTypeTO>) result[0];
+    }    
 }

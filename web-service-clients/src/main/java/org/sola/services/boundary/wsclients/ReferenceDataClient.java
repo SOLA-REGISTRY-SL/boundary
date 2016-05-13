@@ -141,6 +141,10 @@ public interface ReferenceDataClient extends AbstractWSClient {
      */
     public static final String GET_LAND_USE_TYPES = SERVICE_NAME + "getLandUseTypes";
     /**
+     * ReferenceData.getLandTypes - Identifier for the getCadastreObjectTypes method
+     */
+    public static final String GET_LAND_TYPES = SERVICE_NAME + "getLandTypes";
+    /**
      * ReferenceData.getCadastreObjectTypes - Identifier for the getCadastreObjectTypes method
      */
     public static final String GET_CADASTRE_OBJECT_TYPES = SERVICE_NAME + "getCadastreObjectTypes";
@@ -705,4 +709,7 @@ public interface ReferenceDataClient extends AbstractWSClient {
 
     List<ChiefdomTypeTO> getChiefdomTypes(String lang) throws WebServiceClientException;
     
+    List<LandTypeTO> getLandTypes() throws WebServiceClientException;
+    
+    List<LandTypeTO> getLandTypes(String lang) throws WebServiceClientException;
 }
