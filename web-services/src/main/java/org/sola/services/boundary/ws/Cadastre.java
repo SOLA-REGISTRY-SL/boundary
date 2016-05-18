@@ -41,6 +41,7 @@ import org.sola.services.boundary.transferobjects.cadastre.LevelTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.services.boundary.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.services.boundary.transferobjects.cadastre.SurveyPlanListReturnReportParamsTO;
 import org.sola.services.boundary.transferobjects.cadastre.SurveyPlanListReturnReportTO;
 import org.sola.services.boundary.transferobjects.cadastre.SurveyPlanTO;//Added refernce for the SurveyPlan
 import org.sola.services.boundary.transferobjects.transaction.TransactionCadastreChangeTO;
@@ -57,6 +58,8 @@ import org.sola.services.ejb.cadastre.repository.entities.NewCadastreObjectIdent
 import org.sola.services.ejb.cadastre.repository.entities.SpatialUnit;
 import org.sola.services.ejb.cadastre.repository.entities.SpatialUnitGroup;
 import org.sola.services.ejb.cadastre.repository.entities.SurveyPlan; //SurveyPlan Entity
+import org.sola.services.ejb.cadastre.repository.entities.SurveyPlanListReturnReport;
+import org.sola.services.ejb.cadastre.repository.entities.SurveyPlanListReturnReportParams;
 import org.sola.services.ejb.transaction.businesslogic.TransactionEJBLocal;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreChange;
 import org.sola.services.ejb.transaction.repository.entities.TransactionCadastreRedefinition;
@@ -774,26 +777,72 @@ public class Cadastre extends AbstractWebService {
         }); 
     }
 
-   //Survey Plan View
+//   //Survey Plan View
+//     @WebMethod(operationName = "GetSurveyPlanReturnListReport")
+//    public List<SurveyPlanListReturnReportTO> GetSurveyPlanReturnListReport(@WebParam(name = "languageCode") String languageCode)
+//            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+//        final Object[] params = {languageCode};
+//        final Object[] result = {null};
+//
+//        runGeneralQuery(wsContext, new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                String languageCode = params[0] == null ? null : params[0].toString();
+//                //result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport(languageCode), SurveyPlanListReturnReportTO.class);
+//                
+//                //NOTE: This method/function below takes two parameters first is searchString and the second is languageCode BUT the the searchString is unknown......
+//                result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport("",languageCode), SurveyPlanListReturnReportTO.class);
+//            }
+//        }); 
+// 
+//        return (List<SurveyPlanListReturnReportTO>) result[0];
+//    }
+//    
+    
+    
+     /**
+     * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#getSysRegSigningList(java.lang.String)
+     * AdministrativeEJB.getSysRegSigningList}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+  //Survey Plan View
      @WebMethod(operationName = "GetSurveyPlanReturnListReport")
-    public List<SurveyPlanListReturnReportTO> GetSurveyPlanReturnListReport(@WebParam(name = "languageCode") String languageCode)
-            throws SOLAFault, UnhandledFault, SOLAAccessFault {
-        final Object[] params = {languageCode};
-        final Object[] result = {null};
+    public List<SurveyPlanListReturnReportTO> GetSurveyPlanReturnListReport(
+            @WebParam(name = "searchString") String searchString,
+            @WebParam(name = "SurveyPlanListReturnReportParamsTO") SurveyPlanListReturnReportParamsTO paramsTO,
+                        @WebParam(name = "languageCode") String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault, SOLAValidationFault, OptimisticLockingFault {
 
-        runGeneralQuery(wsContext, new Runnable() {
+
+        final String searchStringTmp = searchString;
+        final String languageCodeTmp = languageCode;
+
+        final Object[] result = {null};
+        final SurveyPlanListReturnReportParamsTO paramsTOTmp = paramsTO;
+        
+
+//        runGeneralQuery(wsContext, new Runnable() {
+        runUpdateValidation(wsContext, new Runnable() {
 
             @Override
             public void run() {
-                String languageCode = params[0] == null ? null : params[0].toString();
-                //result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport(languageCode), SurveyPlanListReturnReportTO.class);
                 
-                //NOTE: This method/function below takes two parameters first is searchString and the second is languageCode BUT the the searchString is unknown......
-                result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport("",languageCode), SurveyPlanListReturnReportTO.class);
+                SurveyPlanListReturnReportParams params = GenericTranslator.fromTO(paramsTOTmp, SurveyPlanListReturnReportParams.class, null);
+                List<SurveyPlanListReturnReport> appList = cadastreEJB.getSurveyPlanListReturnReport(searchStringTmp, params, languageCodeTmp);
+                
+                result[0] = GenericTranslator.toTOList(
+                        appList, SurveyPlanListReturnReportTO.class);
             }
-        }); 
- 
+        });
+
         return (List<SurveyPlanListReturnReportTO>) result[0];
     }
+
+    
+    
     
 }

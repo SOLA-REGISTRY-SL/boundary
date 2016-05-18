@@ -37,6 +37,7 @@ import org.sola.webservices.transferobjects.cadastre.LevelTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitGroupTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialUnitTO;
 import org.sola.webservices.transferobjects.cadastre.SpatialValueAreaTO;
+import org.sola.webservices.transferobjects.cadastre.SurveyPlanListReturnReportParamsTO;
 import org.sola.webservices.transferobjects.cadastre.SurveyPlanListReturnReportTO;
 import org.sola.webservices.transferobjects.cadastre.SurveyPlanTO;
 import org.sola.webservices.transferobjects.transaction.TransactionCadastreChangeTO;
@@ -337,6 +338,6 @@ public interface CadastreClient extends AbstractWSClient {
     * Gets the SURVEY PLAN.
     * @return 
     */
-   List<SurveyPlanListReturnReportTO> getSurveyPlanListReturnReportTO();
+   List<SurveyPlanListReturnReportTO> getSurveyPlanListReturnReportTO(String searchString, SurveyPlanListReturnReportParamsTO params);
    
 }
