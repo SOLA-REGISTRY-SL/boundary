@@ -16,50 +16,57 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
 //Member Variables representing the Fields from the SOLA-SL DB
 //We used almost the same columns in the database for simplicity even though not necessarily
 
-    private String surveyPlanid; //= id
-    private String lSNo;
-    private String nameOfOwner;
-    private String propertyNameOfStreet;
-    private String propertyAddressNo;
+    private String id;
+
+    private String LSNo;
+   
+    private String nameofOwner;
+
+    private String address;
+
     private String landtype;
+
     private String areaOfLand;
-    private String landManagement;
-    private String nameOfLicenseSurveyor;
+
     private String eastNeighborPlotHolder;
+
     private String westNeighborPlotHolder;
+
     private String northNeighborPlotHolder;
+
     private String southNeighborPlotHolder;
+
     private String surveyingMethod;
-    private String directorOfSurveys;
-    private Date dateSurveyed;
-    private String beaconnumber;
-    private String nameOfCO;
-    private String nameOfSLCO;
+
+    private Date DateSurveyed;
+    
+    private String nameofLicenseSurveyor;
+
+    private String surveyType;
+    
+    private String rfSurvey;
+    
+    private String surveyNumber;
+    
+    private Date dslDate;
     
     //COnstructor
     public SurveyPlanListReturnReportTO() {
         super();
     }
 
-    //Getters
-    public String getSurveyPlanid() {
-        return surveyPlanid;
+//    GETTERS
+
+    public String getLSNo() {
+        return LSNo;
     }
 
-    public String getlSNo() {
-        return lSNo;
+    public String getNameofOwner() {
+        return nameofOwner;
     }
 
-    public String getNameOfOwner() {
-        return nameOfOwner;
-    }
-
-    public String getPropertyNameOfStreet() {
-        return propertyNameOfStreet;
-    }
-
-    public String getPropertyAddressNo() {
-        return propertyAddressNo;
+    public String getAddress() {
+        return address;
     }
 
     public String getLandtype() {
@@ -68,14 +75,6 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
 
     public String getAreaOfLand() {
         return areaOfLand;
-    }
-
-    public String getLandManagement() {
-        return landManagement;
-    }
-
-    public String getNameOfLicenseSurveyor() {
-        return nameOfLicenseSurveyor;
     }
 
     public String getEastNeighborPlotHolder() {
@@ -98,24 +97,27 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
         return surveyingMethod;
     }
 
-    public String getDirectorOfSurveys() {
-        return directorOfSurveys;
-    }
-
     public Date getDateSurveyed() {
-        return dateSurveyed;
+        return DateSurveyed;
     }
 
-    public String getBeaconnumber() {
-        return beaconnumber;
+    public String getNameofLicenseSurveyor() {
+        return nameofLicenseSurveyor;
     }
 
-    public String getNameOfCO() {
-        return nameOfCO;
+    public String getSurveyType() {
+        return surveyType;
     }
 
-    public String getNameOfSLCO() {
-        return nameOfSLCO;
+    public String getRfSurvey() {
+        return rfSurvey;
     }
-    
+
+    public String getSurveyNumber() {
+        return surveyNumber;
+    }
+
+    public Date getDslDate() {
+        return dslDate;
+    }
 }

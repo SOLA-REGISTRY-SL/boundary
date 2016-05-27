@@ -430,8 +430,7 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         String languageCode = this.getLanguageCode();
         try { 
             beforeWebMethod(methodName);
-            //Having problem with the below line
-            //result = getPort().getSurveyPlanListReturnReport(languageCode);
+           result = getPort().getSurveyPlanReturnListReport(searchString, params, languageCode);
         } catch (Exception e) {
             processException(methodName, e);
         } finally {
