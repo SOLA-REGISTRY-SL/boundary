@@ -26,7 +26,7 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
 
     private String landtype;
 
-    private String areaOfLand;
+    private double areaOfLand;
 
     private String eastNeighborPlotHolder;
 
@@ -50,11 +50,7 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
     
     private Date dslDate;
     
-    //COnstructor
-    public SurveyPlanListReturnReportTO() {
-        super();
-    }
-
+   
 //    GETTERS
 
     public String getLSNo() {
@@ -73,7 +69,7 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
         return landtype;
     }
 
-    public String getAreaOfLand() {
+    public double getAreaOfLand() {
         return areaOfLand;
     }
 
@@ -120,4 +116,70 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
     public Date getDslDate() {
         return dslDate;
     }
+
+    public void setLSNo(String LSNo) {
+        this.LSNo = LSNo;
+    }
+
+    public void setNameofOwner(String nameofOwner) {
+        this.nameofOwner = nameofOwner;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setLandtype(String landtype) {
+        this.landtype = landtype;
+    }
+
+    public void setAreaOfLand(double areaOfLand) {
+        this.areaOfLand = areaOfLand;
+    }
+
+    public void setEastNeighborPlotHolder(String eastNeighborPlotHolder) {
+        this.eastNeighborPlotHolder = eastNeighborPlotHolder;
+    }
+
+    public void setWestNeighborPlotHolder(String westNeighborPlotHolder) {
+        this.westNeighborPlotHolder = westNeighborPlotHolder;
+    }
+
+    public void setNorthNeighborPlotHolder(String northNeighborPlotHolder) {
+        this.northNeighborPlotHolder = northNeighborPlotHolder;
+    }
+
+    public void setSouthNeighborPlotHolder(String southNeighborPlotHolder) {
+        this.southNeighborPlotHolder = southNeighborPlotHolder;
+    }
+
+    public void setSurveyingMethod(String surveyingMethod) {
+        this.surveyingMethod = surveyingMethod;
+    }
+
+    public void setDateSurveyed(Date DateSurveyed) {
+        this.DateSurveyed = DateSurveyed;
+    }
+
+    public void setNameofLicenseSurveyor(String nameofLicenseSurveyor) {
+        this.nameofLicenseSurveyor = nameofLicenseSurveyor;
+    }
+
+    public void setSurveyType(String surveyType) {
+        this.surveyType = surveyType;
+    }
+
+    public void setRfSurvey(String rfSurvey) {
+        this.rfSurvey = rfSurvey;
+    }
+
+    public void setSurveyNumber(String surveyNumber) {
+        this.surveyNumber = surveyNumber;
+    }
+
+    public void setDslDate(Date dslDate) {
+        this.dslDate = dslDate;
+    }
+    
+    
 }
