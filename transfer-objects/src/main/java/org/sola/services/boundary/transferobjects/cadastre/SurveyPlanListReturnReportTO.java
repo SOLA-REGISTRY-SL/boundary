@@ -16,7 +16,7 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
 //Member Variables representing the Fields from the SOLA-SL DB
 //We used almost the same columns in the database for simplicity even though not necessarily
 
-    private String id;
+//    private String id;
 
     private String LSNo;
    
