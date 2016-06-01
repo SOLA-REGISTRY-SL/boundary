@@ -16,66 +16,61 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
 //Member Variables representing the Fields from the SOLA-SL DB
 //We used almost the same columns in the database for simplicity even though not necessarily
 
-    private String surveyPlanid; //= id
-    private String lSNo;
-    private String nameOfOwner;
-    private String propertyNameOfStreet;
-    private String propertyAddressNo;
+//    private String id;
+
+    private String LSNo;
+   
+    private String nameofOwner;
+
+    private String address;
+
     private String landtype;
-    private String areaOfLand;
-    private String landManagement;
-    private String nameOfLicenseSurveyor;
+
+    private double areaOfLand;
+
     private String eastNeighborPlotHolder;
+
     private String westNeighborPlotHolder;
+
     private String northNeighborPlotHolder;
+
     private String southNeighborPlotHolder;
+
     private String surveyingMethod;
-    private String directorOfSurveys;
-    private Date dateSurveyed;
-    private String beaconnumber;
-    private String nameOfCO;
-    private String nameOfSLCO;
+
+    private Date DateSurveyed;
     
-    //COnstructor
-    public SurveyPlanListReturnReportTO() {
-        super();
+    private String nameofLicenseSurveyor;
+
+    private String surveyType;
+    
+    private String rfSurvey;
+    
+    private String surveyNumber;
+    
+    private Date dslDate;
+    
+   
+//    GETTERS
+
+    public String getLSNo() {
+        return LSNo;
     }
 
-    //Getters
-    public String getSurveyPlanid() {
-        return surveyPlanid;
+    public String getNameofOwner() {
+        return nameofOwner;
     }
 
-    public String getlSNo() {
-        return lSNo;
-    }
-
-    public String getNameOfOwner() {
-        return nameOfOwner;
-    }
-
-    public String getPropertyNameOfStreet() {
-        return propertyNameOfStreet;
-    }
-
-    public String getPropertyAddressNo() {
-        return propertyAddressNo;
+    public String getAddress() {
+        return address;
     }
 
     public String getLandtype() {
         return landtype;
     }
 
-    public String getAreaOfLand() {
+    public double getAreaOfLand() {
         return areaOfLand;
-    }
-
-    public String getLandManagement() {
-        return landManagement;
-    }
-
-    public String getNameOfLicenseSurveyor() {
-        return nameOfLicenseSurveyor;
     }
 
     public String getEastNeighborPlotHolder() {
@@ -98,24 +93,93 @@ public class SurveyPlanListReturnReportTO extends AbstractIdTO{
         return surveyingMethod;
     }
 
-    public String getDirectorOfSurveys() {
-        return directorOfSurveys;
-    }
-
     public Date getDateSurveyed() {
-        return dateSurveyed;
+        return DateSurveyed;
     }
 
-    public String getBeaconnumber() {
-        return beaconnumber;
+    public String getNameofLicenseSurveyor() {
+        return nameofLicenseSurveyor;
     }
 
-    public String getNameOfCO() {
-        return nameOfCO;
+    public String getSurveyType() {
+        return surveyType;
     }
 
-    public String getNameOfSLCO() {
-        return nameOfSLCO;
+    public String getRfSurvey() {
+        return rfSurvey;
     }
+
+    public String getSurveyNumber() {
+        return surveyNumber;
+    }
+
+    public Date getDslDate() {
+        return dslDate;
+    }
+
+    public void setLSNo(String LSNo) {
+        this.LSNo = LSNo;
+    }
+
+    public void setNameofOwner(String nameofOwner) {
+        this.nameofOwner = nameofOwner;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setLandtype(String landtype) {
+        this.landtype = landtype;
+    }
+
+    public void setAreaOfLand(double areaOfLand) {
+        this.areaOfLand = areaOfLand;
+    }
+
+    public void setEastNeighborPlotHolder(String eastNeighborPlotHolder) {
+        this.eastNeighborPlotHolder = eastNeighborPlotHolder;
+    }
+
+    public void setWestNeighborPlotHolder(String westNeighborPlotHolder) {
+        this.westNeighborPlotHolder = westNeighborPlotHolder;
+    }
+
+    public void setNorthNeighborPlotHolder(String northNeighborPlotHolder) {
+        this.northNeighborPlotHolder = northNeighborPlotHolder;
+    }
+
+    public void setSouthNeighborPlotHolder(String southNeighborPlotHolder) {
+        this.southNeighborPlotHolder = southNeighborPlotHolder;
+    }
+
+    public void setSurveyingMethod(String surveyingMethod) {
+        this.surveyingMethod = surveyingMethod;
+    }
+
+    public void setDateSurveyed(Date DateSurveyed) {
+        this.DateSurveyed = DateSurveyed;
+    }
+
+    public void setNameofLicenseSurveyor(String nameofLicenseSurveyor) {
+        this.nameofLicenseSurveyor = nameofLicenseSurveyor;
+    }
+
+    public void setSurveyType(String surveyType) {
+        this.surveyType = surveyType;
+    }
+
+    public void setRfSurvey(String rfSurvey) {
+        this.rfSurvey = rfSurvey;
+    }
+
+    public void setSurveyNumber(String surveyNumber) {
+        this.surveyNumber = surveyNumber;
+    }
+
+    public void setDslDate(Date dslDate) {
+        this.dslDate = dslDate;
+    }
+    
     
 }
