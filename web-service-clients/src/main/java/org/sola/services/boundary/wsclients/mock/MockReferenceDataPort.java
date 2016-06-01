@@ -726,4 +726,9 @@ public class MockReferenceDataPort implements ReferenceData {
     public List<LandTypeTO> getLandTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<SurveyTypeTO> getSurveyTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

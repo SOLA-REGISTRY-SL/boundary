@@ -60,6 +60,7 @@ import org.sola.services.ejb.administrative.repository.entities.SourceBaUnitRela
 import org.sola.services.ejb.application.repository.entities.*;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
 import org.sola.services.ejb.cadastre.repository.entities.CadastreObjectType;
+import org.sola.services.ejb.cadastre.repository.entities.SurveyType;
 import org.sola.services.ejb.party.repository.entities.CommunicationType;
 import org.sola.services.ejb.party.repository.entities.GenderType;
 import org.sola.services.ejb.party.repository.entities.IdType;
@@ -1256,5 +1257,31 @@ public class ReferenceData extends AbstractWebService {
         });
 
         return (List<LandTypeTO>) result[0];
-    }    
+    }
+    
+    /**
+     * @param languageCode Language code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetSurveyTypes")
+    public List<SurveyTypeTO> GetSurveyTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runOpenQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(cadastreEJB.getCodeEntityList(
+                        SurveyType.class, languageCodeTmp), SurveyTypeTO.class);
+            }
+        });
+
+        return (List<SurveyTypeTO>) result[0];
+    }
 }

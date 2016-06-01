@@ -798,4 +798,24 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
         return result;
     }
+
+    @Override
+    public List<SurveyTypeTO> getSurveyTypes() throws WebServiceClientException {
+        return getSurveyTypes(this.getLanguageCode());
+    }
+    
+    @Override
+    public List<SurveyTypeTO> getSurveyTypes(String lang) throws WebServiceClientException {
+        List<SurveyTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_LAND_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getSurveyTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
 }

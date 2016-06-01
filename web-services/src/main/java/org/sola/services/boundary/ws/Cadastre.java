@@ -750,8 +750,8 @@ public class Cadastre extends AbstractWebService {
         });
     }
         
-        ////////////////////////SAVE Survey Plan////////////////////////////////////////
-       @WebMethod(operationName = "SaveSurveyPlan")
+    ////////////////////////SAVE Survey Plan////////////////////////////////////////
+    @WebMethod(operationName = "SaveSurveyPlan")
     public void SaveSurveyPlan(
             @WebParam(name = "items") List<SurveyPlanTO> items,
             @WebParam(name = "languageCode") String languageCode)
@@ -777,30 +777,6 @@ public class Cadastre extends AbstractWebService {
         }); 
     }
 
-//   //Survey Plan View
-//     @WebMethod(operationName = "GetSurveyPlanReturnListReport")
-//    public List<SurveyPlanListReturnReportTO> GetSurveyPlanReturnListReport(@WebParam(name = "languageCode") String languageCode)
-//            throws SOLAFault, UnhandledFault, SOLAAccessFault {
-//        final Object[] params = {languageCode};
-//        final Object[] result = {null};
-//
-//        runGeneralQuery(wsContext, new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                String languageCode = params[0] == null ? null : params[0].toString();
-//                //result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport(languageCode), SurveyPlanListReturnReportTO.class);
-//                
-//                //NOTE: This method/function below takes two parameters first is searchString and the second is languageCode BUT the the searchString is unknown......
-//                result[0] = GenericTranslator.toTOList(cadastreEJB.getSurveyPlanListReturnReport("",languageCode), SurveyPlanListReturnReportTO.class);
-//            }
-//        }); 
-// 
-//        return (List<SurveyPlanListReturnReportTO>) result[0];
-//    }
-//    
-    
-    
      /**
      * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#getSysRegSigningList(java.lang.String)
      * AdministrativeEJB.getSysRegSigningList}
@@ -841,8 +817,5 @@ public class Cadastre extends AbstractWebService {
 
         return (List<SurveyPlanListReturnReportTO>) result[0];
     }
-
-    
-    
-    
+   
 }

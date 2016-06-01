@@ -63,6 +63,16 @@ public class CadastreObjectTO extends AbstractIdTO {
     private PartySummaryTO chartingOfficer;
     private PartySummaryTO licensedSurveyor;
     private String chiefdomTypeCode;
+    private String surveyTypeCode;
+    private String refNameFirstpart;
+    private String refNameLastpart;
+    private String surveyNumber;
+    private String correspondenceFile;
+    private String computationFile;
+    private String drawnBy;
+    private String checkedBy;
+    private Date checkingDate;
+    private String dwgOffNumber;
     
     public CadastreObjectTO() {
         super();
@@ -290,5 +300,85 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setChiefdomTypeCode(String chiefdomTypeCode) {
         this.chiefdomTypeCode = chiefdomTypeCode;
+    }
+
+    public String getSurveyTypeCode() {
+        return surveyTypeCode;
+    }
+
+    public void setSurveyTypeCode(String surveyTypeCode) {
+        this.surveyTypeCode = surveyTypeCode;
+    }
+
+    public String getRefNameFirstpart() {
+        return refNameFirstpart;
+    }
+
+    public void setRefNameFirstpart(String refNameFirstpart) {
+        this.refNameFirstpart = refNameFirstpart;
+    }
+
+    public String getRefNameLastpart() {
+        return refNameLastpart;
+    }
+
+    public void setRefNameLastpart(String refNameLastpart) {
+        this.refNameLastpart = refNameLastpart;
+    }
+
+    public String getSurveyNumber() {
+        return surveyNumber;
+    }
+
+    public void setSurveyNumber(String surveyNumber) {
+        this.surveyNumber = surveyNumber;
+    }
+
+    public String getCorrespondenceFile() {
+        return correspondenceFile;
+    }
+
+    public void setCorrespondenceFile(String correspondenceFile) {
+        this.correspondenceFile = correspondenceFile;
+    }
+
+    public String getComputationFile() {
+        return computationFile;
+    }
+
+    public void setComputationFile(String computationFile) {
+        this.computationFile = computationFile;
+    }
+
+    public String getDrawnBy() {
+        return drawnBy;
+    }
+
+    public void setDrawnBy(String drawnBy) {
+        this.drawnBy = drawnBy;
+    }
+
+    public String getCheckedBy() {
+        return checkedBy;
+    }
+
+    public void setCheckedBy(String checkedBy) {
+        this.checkedBy = checkedBy;
+    }
+
+    public Date getCheckingDate() {
+        return checkingDate;
+    }
+
+    public void setCheckingDate(Date checkingDate) {
+        this.checkingDate = checkingDate;
+    }
+
+    public String getDwgOffNumber() {
+        return dwgOffNumber;
+    }
+
+    public void setDwgOffNumber(String dwgOffNumber) {
+        this.dwgOffNumber = dwgOffNumber;
     }
 }
