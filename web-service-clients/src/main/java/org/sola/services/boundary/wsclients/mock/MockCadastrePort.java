@@ -533,5 +533,10 @@ public class MockCadastrePort implements Cadastre {
             return null;
         }
     }
+
+    @Override
+    public CadastreObjectTO getCadastreObject(String id) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
 }

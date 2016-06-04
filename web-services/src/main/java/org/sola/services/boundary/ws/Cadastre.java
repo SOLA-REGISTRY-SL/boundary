@@ -675,6 +675,31 @@ public class Cadastre extends AbstractWebService {
         return (List<LevelTO>) result[0];
     }
 
+    /**
+     * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#getCadastreObject(String)
+     * CadastreEJB.getCadastreObject(String)}
+     * 
+     * @param id Cadastre object id
+     * @return 
+     * @throws SOLAAccessFault
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     */
+
+     @WebMethod(operationName = "GetCadastreObject")
+    public CadastreObjectTO GetCadastreObject(@WebParam(name = "id") final String id)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final CadastreObjectTO[] result = {null};
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(cadastreEJB.getCadastreObject(id), CadastreObjectTO.class);
+            }
+        });
+        return result[0];
+    }
+    
      /**
      * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#getSpatialUnits(byte[], String, Integer)
      * CadastreEJB.getSpatialUnits(byte[], String, Integer)}

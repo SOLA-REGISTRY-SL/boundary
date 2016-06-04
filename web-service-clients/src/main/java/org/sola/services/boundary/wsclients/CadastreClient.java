@@ -65,6 +65,11 @@ public interface CadastreClient extends AbstractWSClient {
      */
     public static final String GET_CADASTRE_OBJECT_BY_PARTS = SERVICE_NAME + "getCadastreObjectByParts";
     /**
+     * Cadastre.getCadastreObject - Identifier for the
+     * getCadastreObject method
+     */
+    public static final String GET_CADASTRE_OBJECT = SERVICE_NAME + "getCadastreObject";
+    /**
      * Cadastre.getCadastreObjectByParts - Identifier for the
      * getCadastreObjectByParts method
      */
@@ -340,4 +345,5 @@ public interface CadastreClient extends AbstractWSClient {
     */
    List<SurveyPlanListReturnReportTO> getSurveyPlanListReturnReportTO(String searchString, SurveyPlanListReturnReportParamsTO params);
    
+   CadastreObjectTO getCadastreObject(String id) throws WebServiceClientException;
 }
