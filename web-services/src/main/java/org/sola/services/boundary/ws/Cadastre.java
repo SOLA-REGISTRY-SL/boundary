@@ -66,7 +66,8 @@ import org.sola.services.ejb.transaction.repository.entities.TransactionCadastre
 import org.sola.services.ejb.transaction.repository.entities.TransactionType;
 
 /**
- * Web Service Boundary class to expose {@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB}
+ * Web Service Boundary class to expose
+ * {@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB}
  * methods.
  */
 @WebService(serviceName = "cadastre-service", targetNamespace = ServiceConstants.CADASTRE_WS_NAMESPACE)
@@ -78,7 +79,7 @@ public class Cadastre extends AbstractWebService {
     private TransactionEJBLocal transactionEJB;
     @EJB
     private ApplicationEJBLocal appEJB;
-    
+
     @Resource
     private WebServiceContext wsContext;
 
@@ -268,18 +269,19 @@ public class Cadastre extends AbstractWebService {
 
             @Override
             public void run() {
-                TransactionCadastreChange targetTransaction =
-                        transactionEJB.getTransactionById(
-                        transactionTO.getId(), TransactionCadastreChange.class);
+                TransactionCadastreChange targetTransaction
+                        = transactionEJB.getTransactionById(
+                                transactionTO.getId(), TransactionCadastreChange.class);
                 TransactionCadastreChange transactionCadastreChange = GenericTranslator.fromTO(
                         transactionTO, TransactionCadastreChange.class, targetTransaction);
-                
+
                 String requestType = TransactionType.CADASTRE_CHANGE;
-                
-                if(transactionCadastreChange.getFromServiceId() != null){
+
+                if (transactionCadastreChange.getFromServiceId() != null) {
                     Service service = appEJB.getService(transactionCadastreChange.getFromServiceId());
-                    if(service != null)
+                    if (service != null) {
                         requestType = service.getRequestTypeCode();
+                    }
                 }
                 result[0] = transactionEJB.saveTransaction(transactionCadastreChange, requestType, languageCodeTmp);
             }
@@ -475,12 +477,12 @@ public class Cadastre extends AbstractWebService {
 
             @Override
             public void run() {
-                TransactionCadastreRedefinition targetTransaction =
-                        transactionEJB.getTransactionById(
-                        transactionTOTmp.getId(), TransactionCadastreRedefinition.class);
-                TransactionCadastreRedefinition transactionCadastreRedefinition =
-                        GenericTranslator.fromTO(
-                        transactionTOTmp, TransactionCadastreRedefinition.class, targetTransaction);
+                TransactionCadastreRedefinition targetTransaction
+                        = transactionEJB.getTransactionById(
+                                transactionTOTmp.getId(), TransactionCadastreRedefinition.class);
+                TransactionCadastreRedefinition transactionCadastreRedefinition
+                        = GenericTranslator.fromTO(
+                                transactionTOTmp, TransactionCadastreRedefinition.class, targetTransaction);
 
                 result[0] = transactionEJB.saveTransaction(transactionCadastreRedefinition,
                         TransactionType.REDEFINE_CADASTRE, languageCodeTmp);
@@ -513,15 +515,15 @@ public class Cadastre extends AbstractWebService {
             public void run() {
                 result[0] = GenericTranslator.toTO(
                         transactionEJB.getTransactionByServiceId(
-                        serviceIdTmp, false, TransactionCadastreRedefinition.class),
+                                serviceIdTmp, false, TransactionCadastreRedefinition.class),
                         TransactionCadastreRedefinitionTO.class);
             }
         });
 
         return (TransactionCadastreRedefinitionTO) result[0];
     }
-    
-     /**
+
+    /**
      * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#getSpatialValueArea(java.lang.String)
      * CadastreEJB.getSpatialValueArea(String colist )}
      *
@@ -548,7 +550,7 @@ public class Cadastre extends AbstractWebService {
         return (SpatialValueAreaTO) result[0];
     }
 
-     /**
+    /**
      * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#getNewCadastreObjectIdentifier(byte[], java.lang.String)
      * CadastreEJB.getNewCadastreObjectIdentifier(byte[], java.lang.String)}
      *
@@ -573,21 +575,21 @@ public class Cadastre extends AbstractWebService {
 
         return (NewCadastreObjectIdentifier) result[0];
     }
-    
-     /**
-     * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#saveSpatialUnitGroups(List<SpatialUnitGroupTO>, String)
-     * CadastreEJB.saveSpatialUnitGroups(byte[], Integer, Integer)}
-     * 
-     * @param items 
-     * @param languageCode 
-     * 
+
+    /**
+     * See
+     * {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#saveSpatialUnitGroups(List<SpatialUnitGroupTO>,
+     * String) CadastreEJB.saveSpatialUnitGroups(byte[], Integer, Integer)}
+     *
+     * @param items
+     * @param languageCode
+     *
      * @throws SOLAAccessFault
      * @throws SOLAFault
      * @throws UnhandledFault
      * @throws OptimisticLockingFault
      * @throws SOLAValidationFault
      */
-
     @WebMethod(operationName = "SaveSpatialUnitGroups")
     public void SaveSpatialUnitGroups(
             @WebParam(name = "items") List<SpatialUnitGroupTO> items,
@@ -603,31 +605,30 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 List<String> ids = new ArrayList<String>();
-                for(SpatialUnitGroupTO item: itemsTmp){
+                for (SpatialUnitGroupTO item : itemsTmp) {
                     ids.add(item.getId());
                 }
-                List<SpatialUnitGroup> spatialUnitGroupListToSave =
-                        GenericTranslator.fromTOList(itemsTmp, SpatialUnitGroup.class, 
-                        cadastreEJB.getSpatialUnitGroupsByIds(ids));
+                List<SpatialUnitGroup> spatialUnitGroupListToSave
+                        = GenericTranslator.fromTOList(itemsTmp, SpatialUnitGroup.class,
+                                cadastreEJB.getSpatialUnitGroupsByIds(ids));
                 cadastreEJB.saveSpatialUnitGroups(spatialUnitGroupListToSave, languageCodeTmp);
             }
         });
     }
 
-     /**
+    /**
      * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#getSpatialUnitGroups(byte[], Integer, Integer)
      * CadastreEJB.getSpatialUnitGroups(byte[], Integer, Integer)}
-     * 
-     * @param filteringGeometry 
-     * @param hierarchyLevel 
-     * @param srid 
-     * 
+     *
+     * @param filteringGeometry
+     * @param hierarchyLevel
+     * @param srid
+     *
      * @throws SOLAAccessFault
      * @throws SOLAFault
      * @throws UnhandledFault
      */
-
-     @WebMethod(operationName = "GetSpatialUnitGroups")
+    @WebMethod(operationName = "GetSpatialUnitGroups")
     public List<SpatialUnitGroupTO> GetSpatialUnitGroups(
             @WebParam(name = "filteringGeometry") final byte[] filteringGeometry,
             @WebParam(name = "hierarchyLevel") final Integer hierarchyLevel,
@@ -648,7 +649,7 @@ public class Cadastre extends AbstractWebService {
 
         return (List<SpatialUnitGroupTO>) result[0];
     }
-     
+
     /**
      * Uses the {@linkplain org.sola.services.ejb.system.businesslogic.SystemEJB#getCodeEntityList(java.lang.Class, java.lang.String)
      * SystemEJB.getCodeEntityList} to retrieve the BrTechnicalType codes.
@@ -678,15 +679,14 @@ public class Cadastre extends AbstractWebService {
     /**
      * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#getCadastreObject(String)
      * CadastreEJB.getCadastreObject(String)}
-     * 
+     *
      * @param id Cadastre object id
-     * @return 
+     * @return
      * @throws SOLAAccessFault
      * @throws SOLAFault
      * @throws UnhandledFault
      */
-
-     @WebMethod(operationName = "GetCadastreObject")
+    @WebMethod(operationName = "GetCadastreObject")
     public CadastreObjectTO GetCadastreObject(@WebParam(name = "id") final String id)
             throws SOLAFault, UnhandledFault, SOLAAccessFault {
 
@@ -699,21 +699,20 @@ public class Cadastre extends AbstractWebService {
         });
         return result[0];
     }
-    
-     /**
+
+    /**
      * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#getSpatialUnits(byte[], String, Integer)
      * CadastreEJB.getSpatialUnits(byte[], String, Integer)}
-     * 
-     * @param filteringGeometry 
+     *
+     * @param filteringGeometry
      * @param levelId
-     * @param srid 
-     * 
+     * @param srid
+     *
      * @throws SOLAAccessFault
      * @throws SOLAFault
      * @throws UnhandledFault
      */
-
-     @WebMethod(operationName = "GetSpatialUnits")
+    @WebMethod(operationName = "GetSpatialUnits")
     public List<SpatialUnitTO> GetSpatialUnits(
             @WebParam(name = "filteringGeometry") final byte[] filteringGeometry,
             @WebParam(name = "levelId") final String levelId,
@@ -735,20 +734,20 @@ public class Cadastre extends AbstractWebService {
         return (List<SpatialUnitTO>) result[0];
     }
 
-     /**
-     * See {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#saveSpatialUnits(List<SpatialUnitTO>, String)
-     * CadastreEJB.saveSpatialUnits(byte[], Integer, Integer)}
-     * 
-     * @param items 
-     * @param languageCode 
-     * 
+    /**
+     * See
+     * {{@linkplain org.sola.services.ejb.cadastre.businesslogic.CadastreEJB#saveSpatialUnits(List<SpatialUnitTO>,
+     * String) CadastreEJB.saveSpatialUnits(byte[], Integer, Integer)}
+     *
+     * @param items
+     * @param languageCode
+     *
      * @throws SOLAAccessFault
      * @throws SOLAFault
-     * @throws UnhandledFault 
+     * @throws UnhandledFault
      * @throws OptimisticLockingFault
      * @throws SOLAValidationFault
      */
-
     @WebMethod(operationName = "SaveSpatialUnits")
     public void SaveSpatialUnits(
             @WebParam(name = "items") List<SpatialUnitTO> items,
@@ -764,17 +763,17 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 List<String> ids = new ArrayList<String>();
-                for(SpatialUnitTO item: itemsTmp){
+                for (SpatialUnitTO item : itemsTmp) {
                     ids.add(item.getId());
                 }
-                List<SpatialUnit> spatialUnitGroupListToSave =
-                        GenericTranslator.fromTOList(itemsTmp, SpatialUnit.class, 
-                        cadastreEJB.getSpatialUnitsByIds(ids));
+                List<SpatialUnit> spatialUnitGroupListToSave
+                        = GenericTranslator.fromTOList(itemsTmp, SpatialUnit.class,
+                                cadastreEJB.getSpatialUnitsByIds(ids));
                 cadastreEJB.saveSpatialUnits(spatialUnitGroupListToSave, languageCodeTmp);
             }
         });
     }
-        
+
     ////////////////////////SAVE Survey Plan////////////////////////////////////////
     @WebMethod(operationName = "SaveSurveyPlan")
     public void SaveSurveyPlan(
@@ -782,7 +781,7 @@ public class Cadastre extends AbstractWebService {
             @WebParam(name = "languageCode") String languageCode)
             throws SOLAValidationFault, OptimisticLockingFault,
             SOLAFault, UnhandledFault, SOLAAccessFault {
-        
+
         final List<SurveyPlanTO> itemsTmp = items;
         final String languageCodeTmp = languageCode;
 
@@ -791,18 +790,18 @@ public class Cadastre extends AbstractWebService {
             @Override
             public void run() {
                 List<String> ids = new ArrayList<String>();
-                for(SurveyPlanTO item: itemsTmp){
+                for (SurveyPlanTO item : itemsTmp) {
                     ids.add(item.getId());
-                } 
-                List<SurveyPlan> surveyPlanListToSave =
-                        GenericTranslator.fromTOList(itemsTmp, SurveyPlan.class, 
-                        cadastreEJB.getSurveyPlanByIds(ids));
+                }
+                List<SurveyPlan> surveyPlanListToSave
+                        = GenericTranslator.fromTOList(itemsTmp, SurveyPlan.class,
+                                cadastreEJB.getSurveyPlanByIds(ids));
                 cadastreEJB.saveSurveyPlan(surveyPlanListToSave, languageCodeTmp);
             }
-        }); 
+        });
     }
 
-     /**
+    /**
      * See {@linkplain org.sola.services.ejb.administrative.businesslogic.AdministrativeEJB#getSysRegSigningList(java.lang.String)
      * AdministrativeEJB.getSysRegSigningList}
      *
@@ -810,31 +809,29 @@ public class Cadastre extends AbstractWebService {
      * @throws UnhandledFault
      * @throws SOLAAccessFault
      */
-  //Survey Plan View
-     @WebMethod(operationName = "GetSurveyPlanReturnListReport")
+    //Survey Plan View
+    @WebMethod(operationName = "GetSurveyPlanReturnListReport")
     public List<SurveyPlanListReturnReportTO> GetSurveyPlanReturnListReport(
             @WebParam(name = "searchString") String searchString,
             @WebParam(name = "SurveyPlanListReturnReportParamsTO") SurveyPlanListReturnReportParamsTO paramsTO,
-                        @WebParam(name = "languageCode") String languageCode)
+            @WebParam(name = "languageCode") String languageCode)
             throws SOLAFault, UnhandledFault, SOLAAccessFault, SOLAValidationFault, OptimisticLockingFault {
-
 
         final String searchStringTmp = searchString;
         final String languageCodeTmp = languageCode;
 
         final Object[] result = {null};
         final SurveyPlanListReturnReportParamsTO paramsTOTmp = paramsTO;
-        
 
 //        runGeneralQuery(wsContext, new Runnable() {
         runUpdateValidation(wsContext, new Runnable() {
 
             @Override
             public void run() {
-                
+
                 SurveyPlanListReturnReportParams params = GenericTranslator.fromTO(paramsTOTmp, SurveyPlanListReturnReportParams.class, null);
                 List<SurveyPlanListReturnReport> appList = cadastreEJB.getSurveyPlanListReturnReport(searchStringTmp, params, languageCodeTmp);
-                
+
                 result[0] = GenericTranslator.toTOList(
                         appList, SurveyPlanListReturnReportTO.class);
             }
@@ -842,5 +839,18 @@ public class Cadastre extends AbstractWebService {
 
         return (List<SurveyPlanListReturnReportTO>) result[0];
     }
-   
+
+    @WebMethod(operationName = "MakeStateLandClearance")
+    public boolean MakeStateLandClearance(@WebParam(name = "coId") final String coId,
+            @WebParam(name = "cleared") final boolean cleared)
+            throws UnhandledFault, SOLAAccessFault, SOLAFault, OptimisticLockingFault {
+        runUpdate(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                cadastreEJB.makeStateLandClearance(coId, cleared);
+            }
+        });
+        return true;
+    }
 }

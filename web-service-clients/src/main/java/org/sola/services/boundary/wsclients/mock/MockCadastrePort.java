@@ -538,5 +538,9 @@ public class MockCadastrePort implements Cadastre {
     public CadastreObjectTO getCadastreObject(String id) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-  
+
+    @Override
+    public boolean makeStateLandClearance(String coId, boolean cleared) throws OptimisticLockingFault, SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

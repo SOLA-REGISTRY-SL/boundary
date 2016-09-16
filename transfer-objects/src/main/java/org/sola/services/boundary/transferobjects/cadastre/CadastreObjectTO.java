@@ -73,6 +73,7 @@ public class CadastreObjectTO extends AbstractIdTO {
     private String checkedBy;
     private Date checkingDate;
     private String dwgOffNumber;
+    private boolean stateLandClearance;
     
     public CadastreObjectTO() {
         super();
@@ -381,4 +382,13 @@ public class CadastreObjectTO extends AbstractIdTO {
     public void setDwgOffNumber(String dwgOffNumber) {
         this.dwgOffNumber = dwgOffNumber;
     }
+
+    public boolean isStateLandClearance() {
+        return stateLandClearance;
+    }
+
+    public void setStateLandClearance(boolean stateLandClearance) {
+        this.stateLandClearance = stateLandClearance;
+    }
+    
 }

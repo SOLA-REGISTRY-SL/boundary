@@ -69,6 +69,13 @@ public interface CadastreClient extends AbstractWSClient {
      * getCadastreObject method
      */
     public static final String GET_CADASTRE_OBJECT = SERVICE_NAME + "getCadastreObject";
+    
+    /**
+     * Cadastre.makeStateLandClearance - Identifier for the
+     * makeStateLandClearance method
+     */
+    public static final String MAKE_STATE_LAND_CLEARANCE = SERVICE_NAME + "makeStateLandClearance";
+    
     /**
      * Cadastre.getCadastreObjectByParts - Identifier for the
      * getCadastreObjectByParts method
@@ -346,4 +353,6 @@ public interface CadastreClient extends AbstractWSClient {
    List<SurveyPlanListReturnReportTO> getSurveyPlanListReturnReportTO(String searchString, SurveyPlanListReturnReportParamsTO params);
    
    CadastreObjectTO getCadastreObject(String id) throws WebServiceClientException;
+   
+   boolean makeStateLandClearance(String coId, boolean cleared) throws WebServiceClientException;
 }

@@ -454,4 +454,18 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         return result;
     }
     
+    @Override
+    public boolean makeStateLandClearance(String coId, boolean cleared) throws WebServiceClientException {
+        boolean result = true;
+        final String methodName = CadastreClient.MAKE_STATE_LAND_CLEARANCE;
+        try {
+            beforeWebMethod(methodName);
+            result = getPort().makeStateLandClearance(coId, cleared);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, null);
+        }
+        return result;
+    }
 }
