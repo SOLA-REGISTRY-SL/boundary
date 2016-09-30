@@ -37,10 +37,22 @@ public class ApplicationSearchResultTO extends ApplicationSummaryTO {
     private String contactPerson;
     private String agent;
     private String serviceList; 
+    private String parcel; 
     
     public ApplicationSearchResultTO(){
         super();
     }
+    
+    public String getParcel() {
+        return parcel;
+    }
+
+    public void setParcel(String parcel) {
+        this.parcel = parcel;
+    }
+    
+    
+    
     
     public String getAgent() {
         return agent;
