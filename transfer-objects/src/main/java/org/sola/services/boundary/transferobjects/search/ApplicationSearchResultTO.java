@@ -38,7 +38,15 @@ public class ApplicationSearchResultTO extends ApplicationSummaryTO {
     private String agent;
     private String serviceList; 
     private String parcel; 
+    private String landType;
     
+    public String getLandType() {
+        return landType;
+    }
+
+    public void setLandType(String landType) {
+        this.landType = landType;
+    }
     public ApplicationSearchResultTO(){
         super();
     }
