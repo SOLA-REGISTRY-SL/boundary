@@ -468,4 +468,34 @@ public class CadastreClientImpl extends AbstractWSClientImpl implements Cadastre
         }
         return result;
     }
+
+    @Override
+    public boolean makeEnvironmentClearance(String coId, boolean cleared) throws WebServiceClientException {
+        boolean result = true;
+        final String methodName = CadastreClient.MAKE_ENVIRONMENT_CLEARANCE;
+        try {
+            beforeWebMethod(methodName);
+            result = getPort().makeEnvironmentClearance(coId, cleared);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, null);
+        }
+        return result;
+    }
+
+    @Override
+    public boolean makePlanningClearance(String coId, boolean cleared) throws WebServiceClientException {
+        boolean result = true;
+        final String methodName = CadastreClient.MAKE_PLANNING_CLEARANCE;
+        try {
+            beforeWebMethod(methodName);
+            result = getPort().makePlanningClearance(coId, cleared);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, null);
+        }
+        return result;
+    }
 }

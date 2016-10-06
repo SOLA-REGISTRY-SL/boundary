@@ -77,6 +77,18 @@ public interface CadastreClient extends AbstractWSClient {
     public static final String MAKE_STATE_LAND_CLEARANCE = SERVICE_NAME + "makeStateLandClearance";
     
     /**
+     * Cadastre.makePlasningClearance - Identifier for the
+     * makePlansingClearance method
+     */
+    public static final String MAKE_PLANNING_CLEARANCE = SERVICE_NAME + "makePlanningClearance";
+    
+    /**
+     * Cadastre.makeEnvironmentClearance - Identifier for the
+     * makeEnvironmentClearance method
+     */
+    public static final String MAKE_ENVIRONMENT_CLEARANCE = SERVICE_NAME + "makeEnvironmentClearance";
+    
+    /**
      * Cadastre.getCadastreObjectByParts - Identifier for the
      * getCadastreObjectByParts method
      */
@@ -355,4 +367,8 @@ public interface CadastreClient extends AbstractWSClient {
    CadastreObjectTO getCadastreObject(String id) throws WebServiceClientException;
    
    boolean makeStateLandClearance(String coId, boolean cleared) throws WebServiceClientException;
+   
+   boolean makeEnvironmentClearance(String coId, boolean cleared) throws WebServiceClientException;
+
+   boolean makePlanningClearance(String coId, boolean cleared) throws WebServiceClientException;
 }

@@ -74,6 +74,8 @@ public class CadastreObjectTO extends AbstractIdTO {
     private Date checkingDate;
     private String dwgOffNumber;
     private boolean stateLandClearance;
+    private boolean planningClearance;
+    private boolean environmentClearance;
     
     public CadastreObjectTO() {
         super();
@@ -389,6 +391,22 @@ public class CadastreObjectTO extends AbstractIdTO {
 
     public void setStateLandClearance(boolean stateLandClearance) {
         this.stateLandClearance = stateLandClearance;
+    }
+
+    public boolean isPlanningClearance() {
+        return planningClearance;
+    }
+
+    public void setPlanningClearance(boolean planningClearance) {
+        this.planningClearance = planningClearance;
+    }
+
+    public boolean isEnvironmentClearance() {
+        return environmentClearance;
+    }
+
+    public void setEnvironmentClearance(boolean environmentClearance) {
+        this.environmentClearance = environmentClearance;
     }
     
 }

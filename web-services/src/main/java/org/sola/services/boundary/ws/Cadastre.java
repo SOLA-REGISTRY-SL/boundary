@@ -853,4 +853,32 @@ public class Cadastre extends AbstractWebService {
         });
         return true;
     }
+    
+    @WebMethod(operationName = "MakePlanningClearance")
+    public boolean MakePlanningClearance(@WebParam(name = "coId") final String coId,
+            @WebParam(name = "cleared") final boolean cleared)
+            throws UnhandledFault, SOLAAccessFault, SOLAFault, OptimisticLockingFault {
+        runUpdate(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                cadastreEJB.makePlanningClearance(coId, cleared);
+            }
+        });
+        return true;
+    }
+    
+    @WebMethod(operationName = "MakeEnvironmentClearance")
+    public boolean MakeEnvironmentClearance(@WebParam(name = "coId") final String coId,
+            @WebParam(name = "cleared") final boolean cleared)
+            throws UnhandledFault, SOLAAccessFault, SOLAFault, OptimisticLockingFault {
+        runUpdate(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                cadastreEJB.makeEnvironmentClearance(coId, cleared);
+            }
+        });
+        return true;
+    }
 }
