@@ -133,6 +133,71 @@ public interface SearchClient extends AbstractWSClient {
     
     public static final String SEARCH_RIGHTS_FOR_EXPORT = SERVICE_NAME + "searchRightsForExport";
 
+    /**
+     * Search.getMyApplications - Identifier for the getMyApplications method
+     */
+    public static final String GET_MY_APPLICATIONS = SERVICE_NAME + "getMyApplications";
+    
+    /**
+     * Search.getPlLodgedApplications - Identifier for the getPlLodgedApplications method
+     */
+    public static final String GET_PL_LODGED_APPLICATIONS = SERVICE_NAME + "getPlLodgedApplications";
+    
+    /**
+     * Search.getPlApplicationsForPlanCapturing - Identifier for the getPlApplicationsForPlanCapturing method
+     */
+    public static final String GET_PL_APPLICATIONS_FOR_PLAN_CAPTURING = SERVICE_NAME + "getPlApplicationsForPlanCapturing";
+    
+    /**
+     * Search.getPlApplicationsForSLClearance - Identifier for the getPlApplicationsForSLClearance method
+     */
+    public static final String GET_PL_APPLICATIONS_FOR_SL_CLEARANCE = SERVICE_NAME + "getPlApplicationsForSLClearance";
+    
+    /**
+     * Search.getPlApplicationsForPlanningClearance - Identifier for the getPlApplicationsForPlanningClearance method
+     */
+    public static final String GET_PL_APPLICATIONS_FOR_PLANNING_CLEARANCE = SERVICE_NAME + "getPlApplicationsForPlanningClearance";
+    
+    /**
+     * Search.getPlApplicationsForEnvClearance - Identifier for the getPlApplicationsForEnvClearance method
+     */
+    public static final String GET_PL_APPLICATIONS_FOR_ENV_CLEARANCE = SERVICE_NAME + "getPlApplicationsForEnvClearance";
+    
+    /**
+     * Search.getPlApplicationsForCompletion - Identifier for the getPlApplicationsForCompletion method
+     */
+    public static final String GET_PL_APPLICATIONS_FOR_COMPLETION = SERVICE_NAME + "getPlApplicationsForCompletion";
+    
+    /**
+     * Search.getPlApplicationsForApproval - Identifier for the getPlApplicationsForApproval method
+     */
+    public static final String GET_PL_APPLICATIONS_FOR_APPROVAL = SERVICE_NAME + "getPlApplicationsForApproval";
+    
+    /**
+     * Search.getSlLodgedApplications - Identifier for the getSlLodgedApplications method
+     */
+    public static final String GET_SL_LODGED_APPLICATIONS = SERVICE_NAME + "getSlLodgedApplications";
+    
+    /**
+     * Search.getSlApplicationsForPlanCapturing - Identifier for the getSlApplicationsForPlanCapturing method
+     */
+    public static final String GET_SL_APPLICATIONS_FOR_PLAN_CAPTURING = SERVICE_NAME + "getSlApplicationsForPlanCapturing";
+    
+    /**
+     * Search.getSlApplicationsForCompletion - Identifier for the getSlApplicationsForCompletion method
+     */
+    public static final String GET_SL_APPLICATIONS_FOR_COMPLETION = SERVICE_NAME + "getSlApplicationsForCompletion";
+    
+    /**
+     * Search.getSlApplicationsForApproval - Identifier for the getSlApplicationsForApproval method
+     */
+    public static final String GET_SL_APPLICATIONS_FOR_APPROVAL = SERVICE_NAME + "getSlApplicationsForApproval";
+    
+    /**
+     * Search.getDashboardStatistics - Identifier for the getDashboardStatistics method
+     */
+    public static final String GET_DASHBOARD_STATISTICS = SERVICE_NAME + "getDashboardStatistics";
+    
         /**
      * Search.getExtentOfPublicDisplayMap - Identifier for the
      * getExtentOfPublicDisplayMap method
@@ -402,5 +467,83 @@ public interface SearchClient extends AbstractWSClient {
      * @param roleCode Party role code.
      * @return A maximum of 101 parties that match the search criteria.
      */
-    public List<PartySearchResultTO> searchPartiesByRole(String roleCode);
+    public List<PartySearchResultTO> searchPartiesByRole(String roleCode);    
+
+    /**
+     * Returns applications assigned to the current user
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getMyApplications() throws WebServiceClientException;
+  
+    /**
+     * Returns lodged private land applications
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlLodgedApplications() throws WebServiceClientException;
+
+    /**
+     * Returns private land applications ready for survey plan capturing
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlApplicationsForPlanCapturing() throws WebServiceClientException;
+
+    /**
+     * Returns private land applications ready for state land clearance
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlApplicationsForSLClearance() throws WebServiceClientException;
+
+    /**
+     * Returns private land applications ready for planning clearance
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlApplicationsForPlanningClearance() throws WebServiceClientException;
+
+    /**
+     * Returns private land applications ready for environment clearance
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlApplicationsForEnvClearance() throws WebServiceClientException;
+
+    /**
+     * Returns private land applications ready for completion
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlApplicationsForCompletion() throws WebServiceClientException;
+
+    /**
+     * Returns private land applications ready for approval
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlApplicationsForApproval() throws WebServiceClientException;
+    
+    /**
+     * Returns lodged state land applications
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getSlLodgedApplications() throws WebServiceClientException;
+
+    /**
+     * Returns state land applications ready for survey plan capturing
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getSlApplicationsForPlanCapturing() throws WebServiceClientException;
+  
+    /**
+     * Returns state land applications ready for completion
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getSlApplicationsForCompletion() throws WebServiceClientException;
+ 
+    /**
+     * Returns state land applications ready for approval
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getSlApplicationsForApproval() throws WebServiceClientException;
+    
+    /**
+     * Returns various statistics for application number, used on the dashboard
+     * @return 
+     */
+    public DashboardStatisticsTO getDashboardStatistics() throws WebServiceClientException;
 }

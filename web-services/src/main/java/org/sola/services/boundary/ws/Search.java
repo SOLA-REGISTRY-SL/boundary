@@ -794,4 +794,328 @@ public class Search extends AbstractWebService {
 
         return (byte[])result[0];
     }
+    
+    /**
+     * See {@link SearchEJBLocal#getMyApplications(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getMyApplications")
+    public List<ApplicationSearchResultTO> getMyApplications(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getMyApplications(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    } 
+    
+    /**
+     * See {@link SearchEJBLocal#getPlLodgedApplications(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlLodgedApplications")
+    public List<ApplicationSearchResultTO> getPlLodgedApplications(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlLodgedApplications(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    } 
+    
+    /**
+     * See {@link SearchEJBLocal#getPlApplicationsForPlanCapturing(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlApplicationsForPlanCapturing")
+    public List<ApplicationSearchResultTO> getPlApplicationsForPlanCapturing(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlApplicationsForPlanCapturing(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    } 
+    
+    /**
+     * See {@link SearchEJBLocal#getPlApplicationsForSLClearance(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlApplicationsForSLClearance")
+    public List<ApplicationSearchResultTO> getPlApplicationsForSLClearance(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlApplicationsForSLClearance(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    } 
+    
+    /**
+     * See {@link SearchEJBLocal#getPlApplicationsForPlanningClearance(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlApplicationsForPlanningClearance")
+    public List<ApplicationSearchResultTO> getPlApplicationsForPlanningClearance(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlApplicationsForPlanningClearance(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    } 
+    
+    /**
+     * See {@link SearchEJBLocal#getPlApplicationsForEnvClearance(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlApplicationsForEnvClearance")
+    public List<ApplicationSearchResultTO> getPlApplicationsForEnvClearance(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlApplicationsForEnvClearance(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getPlApplicationsForCompletion(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlApplicationsForCompletion")
+    public List<ApplicationSearchResultTO> getPlApplicationsForCompletion(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlApplicationsForCompletion(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getPlApplicationsForApproval(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlApplicationsForApproval")
+    public List<ApplicationSearchResultTO> getPlApplicationsForApproval(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlApplicationsForApproval(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getSlLodgedApplications(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getSlLodgedApplications")
+    public List<ApplicationSearchResultTO> getSlLodgedApplications(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getSlLodgedApplications(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getSlApplicationsForPlanCapturing(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getSlApplicationsForPlanCapturing")
+    public List<ApplicationSearchResultTO> getSlApplicationsForPlanCapturing(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getSlApplicationsForPlanCapturing(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getSlApplicationsForCompletion(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getSlApplicationsForCompletion")
+    public List<ApplicationSearchResultTO> getSlApplicationsForCompletion(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getSlApplicationsForCompletion(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getSlApplicationsForApproval(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getSlApplicationsForApproval")
+    public List<ApplicationSearchResultTO> getSlApplicationsForApproval(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getSlApplicationsForApproval(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getDashboardStatistics()
+     * }
+     *
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getDashboardStatistics")
+    public DashboardStatisticsTO getDashboardStatistics()
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTO(searchEJB.getDashboardStatistics(), DashboardStatisticsTO.class);
+            }
+        });
+        return (DashboardStatisticsTO) result[0];
+    }
 }

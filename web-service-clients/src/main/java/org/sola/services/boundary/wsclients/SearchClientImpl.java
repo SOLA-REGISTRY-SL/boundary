@@ -465,4 +465,211 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         }
         return result;
     }
+
+    @Override
+    public List<ApplicationSearchResultTO> getMyApplications() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_MY_APPLICATIONS;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getMyApplications(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlLodgedApplications() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_LODGED_APPLICATIONS;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlLodgedApplications(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApplicationsForPlanCapturing() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_APPLICATIONS_FOR_PLAN_CAPTURING;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlApplicationsForPlanCapturing(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApplicationsForSLClearance() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_APPLICATIONS_FOR_SL_CLEARANCE;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlApplicationsForSLClearance(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApplicationsForPlanningClearance() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_APPLICATIONS_FOR_PLANNING_CLEARANCE;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlApplicationsForPlanningClearance(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApplicationsForEnvClearance() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_APPLICATIONS_FOR_ENV_CLEARANCE;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlApplicationsForEnvClearance(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApplicationsForCompletion() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_APPLICATIONS_FOR_COMPLETION;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlApplicationsForCompletion(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApplicationsForApproval() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_APPLICATIONS_FOR_APPROVAL;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlApplicationsForApproval(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getSlLodgedApplications() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_SL_LODGED_APPLICATIONS;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getSlLodgedApplications(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getSlApplicationsForPlanCapturing() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_SL_APPLICATIONS_FOR_PLAN_CAPTURING;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getSlApplicationsForPlanCapturing(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getSlApplicationsForCompletion() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_SL_APPLICATIONS_FOR_COMPLETION;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getSlApplicationsForCompletion(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getSlApplicationsForApproval() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_SL_APPLICATIONS_FOR_APPROVAL;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getSlApplicationsForApproval(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public DashboardStatisticsTO getDashboardStatistics() throws WebServiceClientException {
+        DashboardStatisticsTO result = null;
+        final String methodName = SearchClient.GET_DASHBOARD_STATISTICS;
+        try {
+            beforeWebMethod(methodName);
+            result = getPort().getDashboardStatistics();
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result);
+        }
+        return result;
+    }
 }
