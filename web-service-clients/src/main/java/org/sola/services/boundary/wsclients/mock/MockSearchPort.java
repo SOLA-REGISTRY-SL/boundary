@@ -555,4 +555,14 @@ public class MockSearchPort implements Search {
     public List<ApplicationSearchResultTO> getPlApplicationsForSLClearance(String locale) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApprovedApplications(String locale) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getSlApprovedApplications(String locale) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

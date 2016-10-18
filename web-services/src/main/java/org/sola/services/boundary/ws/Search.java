@@ -1118,4 +1118,54 @@ public class Search extends AbstractWebService {
         });
         return (DashboardStatisticsTO) result[0];
     }
+    
+    /**
+     * See {@link SearchEJBLocal#getPlApprovedApplications(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getPlApprovedApplications")
+    public List<ApplicationSearchResultTO> getPlApprovedApplications(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getPlApprovedApplications(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
+    
+    /**
+     * See {@link SearchEJBLocal#getSlApprovedApplications(java.lang.String)
+     * }
+     *
+     * @param locale Locale code
+     * @return 
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "getSlApprovedApplications")
+    public List<ApplicationSearchResultTO> getSlApprovedApplications(@WebParam(name = "locale") final String locale)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(searchEJB.getSlApprovedApplications(locale), ApplicationSearchResultTO.class);
+            }
+        });
+        return (List<ApplicationSearchResultTO>) result[0];
+    }
 }

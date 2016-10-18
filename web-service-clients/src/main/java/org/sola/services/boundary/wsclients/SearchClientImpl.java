@@ -672,4 +672,36 @@ public class SearchClientImpl extends AbstractWSClientImpl implements SearchClie
         }
         return result;
     }
+
+    @Override
+    public List<ApplicationSearchResultTO> getPlApprovedApplications() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_PL_APPROVED_APPLICATIONS;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getPlApprovedApplications(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
+
+    @Override
+    public List<ApplicationSearchResultTO> getSlApprovedApplications() throws WebServiceClientException {
+        List<ApplicationSearchResultTO> result = null;
+        final String methodName = SearchClient.GET_SL_APPROVED_APPLICATIONS;
+        String languageCode = getLanguageCode();
+        try {
+            beforeWebMethod(methodName, languageCode);
+            result = getPort().getSlApprovedApplications(languageCode);
+        } catch (Exception e) {
+            processException(methodName, e);
+        } finally {
+            afterWebMethod(methodName, result, languageCode);
+        }
+        return result;
+    }
 }

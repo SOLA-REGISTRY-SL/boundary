@@ -198,6 +198,16 @@ public interface SearchClient extends AbstractWSClient {
      */
     public static final String GET_DASHBOARD_STATISTICS = SERVICE_NAME + "getDashboardStatistics";
     
+    /**
+     * Search.getPlApprovedApplications - Identifier for the getPlApprovedApplications method
+     */
+    public static final String GET_PL_APPROVED_APPLICATIONS = SERVICE_NAME + "getPlApprovedApplications";
+    
+    /**
+     * Search.getSlApprovedApplications - Identifier for the getSlApprovedApplications method
+     */
+    public static final String GET_SL_APPROVED_APPLICATIONS = SERVICE_NAME + "getSlApprovedApplications";
+    
         /**
      * Search.getExtentOfPublicDisplayMap - Identifier for the
      * getExtentOfPublicDisplayMap method
@@ -546,4 +556,16 @@ public interface SearchClient extends AbstractWSClient {
      * @return 
      */
     public DashboardStatisticsTO getDashboardStatistics() throws WebServiceClientException;
+    
+    /**
+     * Returns approved private land applications
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getPlApprovedApplications() throws WebServiceClientException;
+
+    /**
+     * Returns approved state land applications
+     * @return 
+     */
+    public List<ApplicationSearchResultTO> getSlApprovedApplications() throws WebServiceClientException;
 }

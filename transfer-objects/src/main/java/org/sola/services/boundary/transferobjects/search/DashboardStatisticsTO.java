@@ -17,6 +17,8 @@ public class DashboardStatisticsTO extends AbstractTO {
     private long plForEnvClearance;
     private long plForCompletion;
     private long slForCompletion;
+    private long plApproved;
+    private long slApproved;
     
     public DashboardStatisticsTO(){
         super();
@@ -132,5 +134,21 @@ public class DashboardStatisticsTO extends AbstractTO {
 
     public void setSlForCompletion(long slForCompletion) {
         this.slForCompletion = slForCompletion;
+    }
+
+    public long getPlApproved() {
+        return plApproved;
+    }
+
+    public void setPlApproved(long plApproved) {
+        this.plApproved = plApproved;
+    }
+
+    public long getSlApproved() {
+        return slApproved;
+    }
+
+    public void setSlApproved(long slApproved) {
+        this.slApproved = slApproved;
     }
 }
